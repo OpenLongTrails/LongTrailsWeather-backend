@@ -1,0 +1,39 @@
+# Deployment artifacts
+deployment.zip
+*.pyc
+__pycache__/
+response.json
+
+# Python virtual environment
+venv/
+env/
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets
+config.json
+
+# Claude Code
+CLAUDE.md
+
+# AWS config reference (contains account ID)
+LAMBDA_CONFIG.jsonc
+
+# Sample data
+sample_data/
+
+# Ignore everything else pending review for public sharing
+*
+!.gitignore
+!src/
+!src/**
+!config.example.json

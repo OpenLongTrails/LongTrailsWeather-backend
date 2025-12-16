@@ -1,0 +1,12 @@
+{
+  "PIRATE_WEATHER_API_KEY": "your_pirate_weather_api_key_here",
+  "AWS_ACCOUNT_ID": "123456789012",
+  "S3_BUCKET": "s3-bucket-name-here",
+  "TRAILS": {
+    "at": "Appalachian Trail",
+    "azt": "Arizona Trail",
+    "ct": "Colorado Trail",
+    "lt": "Long Trail",
+    "pct": "Pacific Crest Trail"
+  }
+}
