@@ -28,22 +28,22 @@ def load_locations():
         return json.load(f)
 
 
-def del_rawforecast_bucket_contents(trailname):
+def del_s3_prefix_contents(prefix):
+    """
+    Deletes all objects under the given S3 prefix.
+    prefix: e.g., 'forecasts/raw/lt' or 'forecasts/detail/lt'
+    """
     objects_to_delete = []
     s3 = boto3.resource('s3')
     bucket = s3.Bucket(S3_BUCKET)
 
-    for obj in bucket.objects.filter(Prefix='forecasts/raw/' + trailname):
-        if (obj.key[-1] != '/'):                                                    # don't delete the forecasts/raw/<trailname> directory.
+    for obj in bucket.objects.filter(Prefix=prefix):
+        if obj.key[-1] != '/':
             objects_to_delete.append({'Key': obj.key})
 
-    # .delete_objects accepts up to 1,000 objects at a time so don't exceed that.
-    if(len(objects_to_delete) > 0):                                                 # aws lambda complains about malformed xml if len(objects_to_delete == 0).
-        bucket.delete_objects(
-            Delete={
-                'Objects': objects_to_delete
-            }
-        )
+    # delete_objects accepts up to 1,000 objects; complains if list is empty
+    if len(objects_to_delete) > 0:
+        bucket.delete_objects(Delete={'Objects': objects_to_delete})
 
 
 def get_forecasts(locations, trailname):
@@ -189,7 +189,8 @@ def main(trails_to_update=None):
 
 
 def update_trail(trailname, locations):
-    del_rawforecast_bucket_contents(trailname)
+    del_s3_prefix_contents(f'forecasts/raw/{trailname}')
+    del_s3_prefix_contents(f'forecasts/detail/{trailname}')
     get_forecasts(locations, trailname)
     process_forecasts(trailname)
     
