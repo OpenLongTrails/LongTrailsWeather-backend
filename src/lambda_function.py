@@ -107,10 +107,10 @@ def process_forecasts(trailname):
                 else:
                     processed_day['temperatureLow'] = "#NA"
 
-                if 'precipIntensity' in source_day:
-                    processed_day['precipIntensity'] = source_day['precipIntensity']
+                if 'precipAccumulation' in source_day:
+                    processed_day['precipAccumulation'] = source_day['precipAccumulation']
                 else:
-                    processed_day['precipIntensity'] = "#NA"
+                    processed_day['precipAccumulation'] = "#NA"
 
                 if 'precipProbability' in source_day:
                     processed_day['precipProbability'] = source_day['precipProbability']
