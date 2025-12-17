@@ -157,7 +157,7 @@ def process_forecasts(trailname):
          'forecasts': forecasts}
 
     write_to_s3(S3_BUCKET, 'forecasts/processed/' + trailname + '.json', json.dumps(a))
-    write_to_s3(S3_BUCKET, 'forecasts/archive/' + trailname + f'_{datetime.datetime.now().year}{datetime.datetime.now().month:02}{datetime.datetime.now().day:02}.json', json.dumps(a))
+    write_to_s3(S3_BUCKET, 'forecasts/archive/summary/' + trailname + f'_{datetime.datetime.now().year}{datetime.datetime.now().month:02}{datetime.datetime.now().day:02}.json', json.dumps(a))
 
 
 def write_to_s3(s3_bucketname, fullpath, string):
