@@ -4,6 +4,8 @@ import boto3
 import datetime
 import urllib.request
 
+S3_BUCKET = 'www.longtrailsweather.net'
+
 
 def get_api_key():
     """
@@ -18,10 +20,18 @@ def get_api_key():
     return config['PIRATE_WEATHER_API_KEY']
 
 
-def emptify_rawforecast_bucket(trailname):
+def load_locations():
+    """
+    Returns dict of trail locations from forecast_locations.json.
+    """
+    with open('forecast_locations.json', 'r') as f:
+        return json.load(f)
+
+
+def del_rawforecast_bucket_contents(trailname):
     objects_to_delete = []
     s3 = boto3.resource('s3')
-    bucket = s3.Bucket('www.longtrailsweather.net')
+    bucket = s3.Bucket(S3_BUCKET)
 
     for obj in bucket.objects.filter(Prefix='forecasts/raw/' + trailname):
         if (obj.key[-1] != '/'):                                                    # don't delete the forecasts/raw/<trailname> directory.
@@ -45,9 +55,9 @@ def get_forecasts(locations, trailname):
         #           0            1                 2                         3                                          4                                    5                   6 7
         filename = 'forecast_' + trailname + "_" + location['point'] + '_' + location['name'].replace(" ", "*") + "_" + str(float(location['mile'])) + "_" + location['state'] + "_" + datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + '.json'
 
-        write_to_s3('www.longtrailsweather.net', 'forecasts/raw/' + trailname + '/' + filename, forecast)
+        write_to_s3(S3_BUCKET, 'forecasts/raw/' + trailname + '/' + filename, forecast)
 
-        print('www.longtrailsweather.net/forecasts/raw/' + trailname + '/' + filename + ' written.')
+        print(S3_BUCKET + '/forecasts/raw/' + trailname + '/' + filename + ' written.')
 
 
 def process_forecasts(trailname):
@@ -56,8 +66,7 @@ def process_forecasts(trailname):
 
     s3 = boto3.resource('s3')
 
-    bucketname = 'www.longtrailsweather.net'
-    bucket = s3.Bucket(bucketname)
+    bucket = s3.Bucket(S3_BUCKET)
 
     for obj in bucket.objects.filter(Prefix='forecasts/raw/' + trailname):
         if (obj.key[-1] != '/'):
@@ -135,8 +144,8 @@ def process_forecasts(trailname):
     a = {'last_modified': str(last_modified),
          'forecasts': forecasts}
 
-    write_to_s3('www.longtrailsweather.net', 'forecasts/processed/' + trailname + '.json', json.dumps(a))
-    write_to_s3('www.longtrailsweather.net', 'forecasts/archive/' + trailname + f'_{datetime.datetime.now().year}{datetime.datetime.now().month:02}{datetime.datetime.now().day:02}.json', json.dumps(a))
+    write_to_s3(S3_BUCKET, 'forecasts/processed/' + trailname + '.json', json.dumps(a))
+    write_to_s3(S3_BUCKET, 'forecasts/archive/' + trailname + f'_{datetime.datetime.now().year}{datetime.datetime.now().month:02}{datetime.datetime.now().day:02}.json', json.dumps(a))
 
 
 def write_to_s3(s3_bucketname, fullpath, string):
@@ -151,290 +160,35 @@ def write_to_s3(s3_bucketname, fullpath, string):
     print('saved ' + s3_bucketname + '/' + response.key)
 
 
-def main():
-    at_locations = [{'point': '01', 'name': 'Max Epperson Shelter, Amicalola Falls SP', 'state': '', 'lat': '34.558602', 'lon': '-84.24779', 'mile': '-8.7'},
-                    {'point': '02', 'name': 'Springer Mountain Shelter', 'state': '', 'lat': '34.62946', 'lon': '-84.19268', 'mile': '0.2'},
-                    {'point': '03', 'name': 'Woods Hole Shelter', 'state': '', 'lat': '34.73724', 'lon': '-83.95495', 'mile': '28.2'},
-                    {'point': '04', 'name': 'Blue Mountain Shelter', 'state': '', 'lat': '34.81724', 'lon': '-83.76667', 'mile': '50.5'},
-                    {'point': '05', 'name': 'Plumorchard Gap Shelter', 'state': '', 'lat': '34.94594', 'lon': '-83.58828', 'mile': '74.1'},
-                    {'point': '06', 'name': 'Long Branch Shelter', 'state': '', 'lat': '35.06997', 'lon': '-83.49815', 'mile': '102.5'},
-                    {'point': '07', 'name': 'Cold Spring Shelter', 'state': '', 'lat': '35.23109', 'lon': '-83.55996', 'mile': '125.6'},
-                    {'point': '08', 'name': 'Brown Fork Gap Shelter', 'state': '', 'lat': '35.37427', 'lon': '-83.73392', 'mile': '153.1'},
-                    {'point': '09', 'name': 'Mollies Ridge Shelter', 'state': '', 'lat': '35.54587', 'lon': '-83.79349', 'mile': '177.3'},
-                    {'point': '10', 'name': 'Mt. Collins Shelter', 'state': '', 'lat': '35.59384', 'lon': '-83.47129', 'mile': '202.8'},
-                    {'point': '11', 'name': 'Tricorner Knob Shelter', 'state': '', 'lat': '35.69375', 'lon': '-83.25653', 'mile': '222.2'},
-                    {'point': '12', 'name': 'Roaring Fork Shelter', 'state': '', 'lat': '35.805', 'lon': '-82.94978', 'mile': '255.7'},
-                    {'point': '13', 'name': 'Deer Park Mountain Shelter', 'state': '', 'lat': '35.87595', 'lon': '-82.86125', 'mile': '270.5'},
-                    {'point': '14', 'name': 'Jerry Cabin', 'state': '', 'lat': '36.05655', 'lon': '-82.65712', 'mile': '300.1'},
-                    {'point': '15', 'name': 'Bald Mountain Shelter', 'state': '', 'lat': '36.00016', 'lon': '-82.47808', 'mile': '325.3'},
-                    {'point': '16', 'name': 'Curley Maple Gap Shelter', 'state': '', 'lat': '36.10432', 'lon': '-82.39684', 'mile': '346.4'},
-                    {'point': '17', 'name': 'Roan High Knob Shelter', 'state': '', 'lat': '36.10506', 'lon': '-82.12222', 'mile': '376.8'},
-                    {'point': '18', 'name': 'Mountaineer Falls Shelter', 'state': '', 'lat': '36.2202', 'lon': '-81.98569', 'mile': '401.9'},
-                    {'point': '19', 'name': 'Watauga Lake Shelter', 'state': '', 'lat': '36.31398', 'lon': '-82.1294', 'mile': '428.7'},
-                    {'point': '20', 'name': 'Double Springs Shelter', 'state': '', 'lat': '36.50911', 'lon': '-81.98605', 'mile': '450.3'},
-                    {'point': '21', 'name': 'Damascus, VA', 'state': '', 'lat': '36.63628', 'lon': '-81.789327', 'mile': '468.5'},
-                    {'point': '22', 'name': 'Thomas Knob Shelter', 'state': '', 'lat': '36.65659', 'lon': '-81.53524', 'mile': '497.1'},
-                    {'point': '23', 'name': 'Trimpi Shelter', 'state': '', 'lat': '36.74939', 'lon': '-81.48041', 'mile': '522.4'},
-                    {'point': '24', 'name': 'O''Lystery Pavilion', 'state': '', 'lat': '36.98445', 'lon': '-81.405915', 'mile': '556.3'},
-                    {'point': '25', 'name': 'Jenkins Shelter', 'state': '', 'lat': '37.0934', 'lon': '-81.24762', 'mile': '578.6'},
-                    {'point': '26', 'name': 'Jenny Knob Shelter', 'state': '', 'lat': '37.15504', 'lon': '-80.98013', 'mile': '601.8'},
-                    {'point': '27', 'name': 'Docs Knob Shelter', 'state': '', 'lat': '37.27031', 'lon': '-80.83615', 'mile': '625.8'},
-                    {'point': '28', 'name': 'Pine Swamp Branch Shelter', 'state': '', 'lat': '37.42204', 'lon': '-80.6084', 'mile': '654.1'},
-                    {'point': '29', 'name': 'Laurel Creek Shelter', 'state': '', 'lat': '37.35896', 'lon': '-80.42068', 'mile': '672.6'},
-                    {'point': '30', 'name': 'Pickle Branch Shelter', 'state': '', 'lat': '37.38015', 'lon': '-80.1846', 'mile': '695.1'},
-                    {'point': '31', 'name': 'Daleville, VA', 'state': '', 'lat': '37.39068393', 'lon': '-79.90619097', 'mile': '727.5'},
-                    {'point': '32', 'name': 'Cove Mountain Shelter', 'state': '', 'lat': '37.51162', 'lon': '-79.65071', 'mile': '752.5'},
-                    {'point': '33', 'name': 'Matts Creek Shelter', 'state': '', 'lat': '37.59955', 'lon': '-79.4132', 'mile': '782.1'},
-                    {'point': '34', 'name': 'Brown Mountain Creek Shelter', 'state': '', 'lat': '37.70944', 'lon': '-79.26831', 'mile': '804.3'},
-                    {'point': '35', 'name': 'The Priest Shelter', 'state': '', 'lat': '37.81765', 'lon': '-79.07033', 'mile': '826.7'},
-                    {'point': '36', 'name': 'Paul C. Wolfe Shelter', 'state': '', 'lat': '37.98543', 'lon': '-78.88366', 'mile': '856.3'},
-                    {'point': '37', 'name': 'Calf Mountain Shelter', 'state': '', 'lat': '38.08553', 'lon': '-78.78555', 'mile': '869'},
-                    {'point': '38', 'name': 'Hightop Hut', 'state': '', 'lat': '38.33314', 'lon': '-78.55835', 'mile': '903.4'},
-                    {'point': '39', 'name': 'Rock Spring Hut', 'state': '', 'lat': '38.55353', 'lon': '-78.4083', 'mile': '927.3'},
-                    {'point': '40', 'name': 'Gravel Springs Hut', 'state': '', 'lat': '38.76388', 'lon': '-78.23362', 'mile': '955.7'},
-                    {'point': '41', 'name': 'Jim & Molly Denton Shelter', 'state': '', 'lat': '38.89007', 'lon': '-78.08306', 'mile': '974.3'},
-                    {'point': '42', 'name': 'Sam Moore Shelter', 'state': '', 'lat': '39.09067', 'lon': '-77.88627', 'mile': '999.6'},
-                    {'point': '43', 'name': 'Ed Garvey Shelter', 'state': '', 'lat': '39.35982', 'lon': '-77.66172', 'mile': '1029.4'},
-                    {'point': '44', 'name': 'Ensign Cowall Shelter', 'state': '', 'lat': '39.63102', 'lon': '-77.55566', 'mile': '1054.2'},
-                    {'point': '45', 'name': 'Rocky Mountain Shelters', 'state': '', 'lat': '39.86851', 'lon': '-77.5006', 'mile': '1078.9'},
-                    {'point': '46', 'name': 'Toms Run Shelters', 'state': '', 'lat': '40.03367', 'lon': '-77.35678', 'mile': '1098.1'},
-                    {'point': '47', 'name': 'Darlington Shelter', 'state': '', 'lat': '40.302', 'lon': '-77.0869', 'mile': '1135.3'},
-                    {'point': '48', 'name': 'Clarks Ferry Shelter', 'state': '', 'lat': '40.39238', 'lon': '-76.99411', 'mile': '1150.9'},
-                    {'point': '49', 'name': 'Rausch Gap Shelter', 'state': '', 'lat': '40.49865', 'lon': '-76.60012', 'mile': '1175.6'},
-                    {'point': '50', 'name': 'Eagles Nest Shelter', 'state': '', 'lat': '40.54932', 'lon': '-76.15239', 'mile': '1208.2'},
-                    {'point': '51', 'name': 'Eckville Shelter', 'state': '', 'lat': '40.63375', 'lon': '-75.95789', 'mile': '1232'},
-                    {'point': '52', 'name': 'Bake Oven Knob Shelter', 'state': '', 'lat': '40.7541', 'lon': '-75.72701', 'mile': '1249.4'},
-                    {'point': '53', 'name': 'Wind Gap', 'state': '', 'lat': '40.860703', 'lon': '-75.292659', 'mile': '1277.5'},
-                    {'point': '54', 'name': 'I-80', 'state': '', 'lat': '40.971845', 'lon': '-75.123253', 'mile': '1294.7'},
-                    {'point': '55', 'name': 'Gren Anderson Shelter', 'state': '', 'lat': '41.19948', 'lon': '-74.75264', 'mile': '1324.4'},
-                    {'point': '56', 'name': 'Pochuck Mountain Shelter', 'state': '', 'lat': '41.27126', 'lon': '-74.51492', 'mile': '1349.8'},
-                    {'point': '57', 'name': 'Wildcat Shelter', 'state': '', 'lat': '41.26824', 'lon': '-74.26777', 'mile': '1373.4'},
-                    {'point': '58', 'name': 'Bear Mountain Summit', 'state': '', 'lat': '41.311495', 'lon': '-74.007319', 'mile': '1400.4'},
-                    {'point': '59', 'name': 'RPH Shelter', 'state': '', 'lat': '41.51449', 'lon': '-73.79236', 'mile': '1428.4'},
-                    {'point': '60', 'name': 'Wiley Shelter', 'state': '', 'lat': '41.63782', 'lon': '-73.53239', 'mile': '1454'},
-                    {'point': '61', 'name': 'Stewart Hollow Brook Shelter', 'state': '', 'lat': '41.77928', 'lon': '-73.41851', 'mile': '1473.7'},
-                    {'point': '62', 'name': 'Riga Shelter', 'state': '', 'lat': '42.01562', 'lon': '-73.45196', 'mile': '1502.6'},
-                    {'point': '63', 'name': 'Tom Leonard Shelter', 'state': '', 'lat': '42.16479', 'lon': '-73.3058', 'mile': '1527'},
-                    {'point': '64', 'name': 'Upper Goose Pond Cabin', 'state': '', 'lat': '42.28802', 'lon': '-73.18142', 'mile': '1548.1'},
-                    {'point': '65', 'name': 'Mark Noepel Shelter', 'state': '', 'lat': '42.60862', 'lon': '-73.18415', 'mile': '1582.6'},
-                    {'point': '66', 'name': 'Seth Warner Shelter', 'state': '', 'lat': '42.77193', 'lon': '-73.13694', 'mile': '1599.1'},
-                    {'point': '67', 'name': 'Kid Gore Shelter', 'state': '', 'lat': '43.01406', 'lon': '-73.04294', 'mile': '1625'},
-                    {'point': '68', 'name': 'Bromley Shelter', 'state': '', 'lat': '43.22238', 'lon': '-72.95048', 'mile': '1652.7'},
-                    {'point': '69', 'name': 'Greenwall Shelter', 'state': '', 'lat': '43.44059', 'lon': '-72.92946', 'mile': '1675.3'},
-                    {'point': '70', 'name': 'Churchill Scott Shelter', 'state': '', 'lat': '43.64489', 'lon': '-72.85339', 'mile': '1698.9'},
-                    {'point': '71', 'name': 'Cloudland Shelter', 'state': '', 'lat': '43.69214', 'lon': '-72.49312', 'mile': '1730.5'},
-                    {'point': '72', 'name': 'Velvet Rocks Shelter', 'state': '', 'lat': '43.70251', 'lon': '-72.26472', 'mile': '1748.4'},
-                    {'point': '73', 'name': 'Hexacuba Shelter', 'state': '', 'lat': '43.87623', 'lon': '-72.02686', 'mile': '1775.6'},
-                    {'point': '74', 'name': 'Beaver Brook Shelter', 'state': '', 'lat': '44.03304', 'lon': '-71.81131', 'mile': '1798.2'},
-                    {'point': '75', 'name': 'Garfield Ridge Campsite Shelter', 'state': '', 'lat': '44.19069', 'lon': '-71.60836', 'mile': '1826.3'},
-                    {'point': '76', 'name': 'Lake of the Clouds Hut', 'state': '', 'lat': '44.2589', 'lon': '-71.31879', 'mile': '1851.1'},
-                    {'point': '77', 'name': 'Pinkham Notch', 'state': '', 'lat': '44.257498', 'lon': '-71.25258', 'mile': '1869.7'},
-                    {'point': '78', 'name': 'Gentian Pond Campsite Shelter', 'state': '', 'lat': '44.4518', 'lon': '-71.06937', 'mile': '1902.6'},
-                    {'point': '79', 'name': 'Frye Notch Lean-to', 'state': '', 'lat': '44.62791', 'lon': '-70.89982', 'mile': '1927.7'},
-                    {'point': '80', 'name': 'Bemis Mountain Lean-to', 'state': '', 'lat': '44.81018', 'lon': '-70.75588', 'mile': '1951'},
-                    {'point': '81', 'name': 'Poplar Ridge Lean-to', 'state': '', 'lat': '44.97', 'lon': '-70.44534', 'mile': '1979.4'},
-                    {'point': '82', 'name': 'Horns Pond Lean-tos', 'state': '', 'lat': '45.14388', 'lon': '-70.32966', 'mile': '2006'},
-                    {'point': '83', 'name': 'West Carry Pond Lean-to', 'state': '', 'lat': '45.15803', 'lon': '-70.09977', 'mile': '2023.9'},
-                    {'point': '84', 'name': 'Bald Mountain Brook Lean-to', 'state': '', 'lat': '45.25854', 'lon': '-69.79947', 'mile': '2052.6'},
-                    {'point': '85', 'name': 'Leeman Brook Lean-to', 'state': '', 'lat': '45.35151', 'lon': '-69.49876', 'mile': '2077.6'},
-                    {'point': '86', 'name': 'Chairback Gap Lean-to', 'state': '', 'lat': '45.45311', 'lon': '-69.26174', 'mile': '2100.6'},
-                    {'point': '87', 'name': 'Cooper Brook Falls Lean-to', 'state': '', 'lat': '45.6405', 'lon': '-69.0874', 'mile': '2129.4'},
-                    {'point': '88', 'name': 'Wadleigh Stream Lean-to', 'state': '', 'lat': '45.74702', 'lon': '-69.14447', 'mile': '2150.9'},
-                    {'point': '89', 'name': 'Hurd Brook Lean-to', 'state': '', 'lat': '45.81852', 'lon': '-69.01846', 'mile': '2170.5'},
-                    {'point': '90', 'name': 'The Birches Shelters', 'state': '', 'lat': '45.88675', 'lon': '-68.99905', 'mile': '2183.9'}]
+def main(trails_to_update=None):
+    """
+    Updates forecasts for specified trails, or all if none specified.
+    trails_to_update: optional list of trail codes (at, azt, ct, lt, pct)
+    """
+    trail_data = load_locations()
 
-    azt_locations = [{'point': '01', 'name': 'southern terminus', 'state': 'AZ', 'lat': '31.3341880', 'lon': '-110.2820890', 'mile': '0.0'},
-                     {'point': '02', 'name': '', 'state': 'AZ', 'lat': '31.4381080', 'lon': '-110.4812470', 'mile': '25.0'},
-                     {'point': '03', 'name': 'patagonia', 'state': 'AZ', 'lat': '31.5411600', 'lon': '-110.7476650', 'mile': '50.0'},
-                     {'point': '04', 'name': '', 'state': 'AZ', 'lat': '31.7428370', 'lon': '-110.7394250', 'mile': '75.0'},
-                     {'point': '05', 'name': '', 'state': 'AZ', 'lat': '31.9312540', 'lon': '-110.6652680', 'mile': '100.0'},
-                     {'point': '06', 'name': '', 'state': 'AZ', 'lat': '32.1502190', 'lon': '-110.6396120', 'mile': '125.0'},
-                     {'point': '07', 'name': '', 'state': 'AZ', 'lat': '32.3192480', 'lon': '-110.6328970', 'mile': '150.0'},
-                     {'point': '08', 'name': 'summerhaven', 'state': 'AZ', 'lat': '32.4300120', 'lon': '-110.7551200', 'mile': '175.0'},
-                     {'point': '09', 'name': '', 'state': 'AZ', 'lat': '32.6711780', 'lon': '-110.7424980', 'mile': '200.0'},
-                     {'point': '10', 'name': '', 'state': 'AZ', 'lat': '32.8868040', 'lon': '-110.9011130', 'mile': '225.0'},
-                     {'point': '11', 'name': 'gila river crossing', 'state': 'AZ', 'lat': '33.1088700', 'lon': '-110.9831000', 'mile': '250.0'},
-                     {'point': '12', 'name': '', 'state': 'AZ', 'lat': '33.2007120', 'lon': '-111.1368210', 'mile': '275.0'},
-                     {'point': '13', 'name': 'rogers trough th', 'state': 'AZ', 'lat': '33.4147590', 'lon': '-111.1726150', 'mile': '300.0'},
-                     {'point': '14', 'name': 'theodore roosevelt dam', 'state': 'AZ', 'lat': '33.6573630', 'lon': '-111.1364800', 'mile': '325.0'},
-                     {'point': '15', 'name': '', 'state': 'AZ', 'lat': '33.7413380', 'lon': '-111.3582670', 'mile': '350.0'},
-                     {'point': '16', 'name': '', 'state': 'AZ', 'lat': '33.9566490', 'lon': '-111.5133350', 'mile': '375.0'},
-                     {'point': '17', 'name': '', 'state': 'AZ', 'lat': '34.1358660', 'lon': '-111.4968550', 'mile': '400.0'},
-                     {'point': '18', 'name': '', 'state': 'AZ', 'lat': '34.3535370', 'lon': '-111.5541260', 'mile': '425.0'},
-                     {'point': '19', 'name': '', 'state': 'AZ', 'lat': '34.4214680', 'lon': '-111.2986930', 'mile': '450.0'},
-                     {'point': '20', 'name': '', 'state': 'AZ', 'lat': '34.6535700', 'lon': '-111.2389080', 'mile': '475.0'},
-                     {'point': '21', 'name': '', 'state': 'AZ', 'lat': '34.8313970', 'lon': '-111.4390840', 'mile': '500.0'},
-                     {'point': '22', 'name': '', 'state': 'AZ', 'lat': '35.0710040', 'lon': '-111.4713560', 'mile': '525.0'},
-                     {'point': '23', 'name': 'hwy 40', 'state': 'AZ', 'lat': '35.2118000', 'lon': '-111.5070620', 'mile': '550.0'},
-                     {'point': '24', 'name': 'az snowbowl skiing', 'state': 'AZ', 'lat': '35.3377570', 'lon': '-111.7172290', 'mile': '575.0'},
-                     {'point': '25', 'name': '', 'state': 'AZ', 'lat': '35.5937490', 'lon': '-111.7646070', 'mile': '600.0'},
-                     {'point': '26', 'name': '', 'state': 'AZ', 'lat': '35.8453610', 'lon': '-111.8666910', 'mile': '625.0'},
-                     {'point': '27', 'name': '', 'state': 'AZ', 'lat': '35.9627160', 'lon': '-112.0967180', 'mile': '650.0'},
-                     {'point': '28', 'name': 'north rim', 'state': 'AZ', 'lat': '36.1774210', 'lon': '-112.0362930', 'mile': '675.0'},
-                     {'point': '29', 'name': '', 'state': 'AZ', 'lat': '36.4251880', 'lon': '-112.0917540', 'mile': '700.0'},
-                     {'point': '30', 'name': '', 'state': 'AZ', 'lat': '36.6887910', 'lon': '-112.1688620', 'mile': '725.0'},
-                     {'point': '31', 'name': '', 'state': 'AZ', 'lat': '36.9767090', 'lon': '-112.0926700', 'mile': '750.0'},
-                     {'point': '32', 'name': 'northern terminus', 'state': 'AZ', 'lat': '37.0010500', 'lon': '-112.0351770', 'mile': '755.0'}]
-
-    ct_locations = [{'point': '01', 'name': '', 'state': 'CO', 'lat': '39.49126772582531', 'lon': '-105.09500663727522', 'mile': '0'},
-                    {'point': '02', 'name': 'Near Raleigh Pk', 'state': 'CO', 'lat': '39.386833067983389', 'lon': '-105.24016954936087', 'mile': '24.1'},
-                    {'point': '03', 'name': 'Lost Creek TH', 'state': 'CO', 'lat': '39.306682460010052', 'lon': '-105.5150577519089', 'mile': '49.4'},
-                    {'point': '04', 'name': 'Gurnsey Ck', 'state': 'CO', 'lat': '39.427800038829446', 'lon': '-105.8020200021565', 'mile': '74.8'},
-                    {'point': '05', 'name': '', 'state': 'CO', 'lat': '39.536572666838765', 'lon': '-105.99760316312313', 'mile': '100.2'},
-                    {'point': '06', 'name': 'Near Searle Pass', 'state': 'CO', 'lat': '39.458234226331115', 'lon': '-106.22826308012009', 'mile': '127.2'},
-                    {'point': '07', 'name': '', 'state': 'CO', 'lat': '39.326791735365987', 'lon': '-106.40914740040898', 'mile': '149.9'},
-                    {'point': '08', 'name': 'S Elbert Tr', 'state': 'CO', 'lat': '39.109584353864193', 'lon': '-106.39330577105284', 'mile': '174'},
-                    {'point': '09', 'name': 'Rainbow Ck Tr', 'state': 'CO', 'lat': '38.953644577413797', 'lon': '-106.27262589521706', 'mile': '199.2'},
-                    {'point': '10', 'name': '', 'state': 'CO', 'lat': '38.759440490975976', 'lon': '-106.19851872324944', 'mile': '225.4'},
-                    {'point': '11', 'name': '', 'state': 'CO', 'lat': '38.568066973239183', 'lon': '-106.22267302125692', 'mile': '249.9'},
-                    {'point': '12', 'name': '', 'state': 'CO', 'lat': '38.344333861023188', 'lon': '-106.29705168306828', 'mile': '275.1'},
-                    {'point': '13', 'name': 'Lujan Ck TH', 'state': 'CO', 'lat': '38.239954691380262', 'lon': '-106.55773381702602', 'mile': '300.1'},
-                    {'point': '14', 'name': 'Access to Cochetopa Ck', 'state': 'CO', 'lat': '38.098549973219633', 'lon': '-106.78059001453221', 'mile': '323.8'},
-                    {'point': '15', 'name': 'Mineral Ck Tr', 'state': 'CO', 'lat': '37.949614031240344', 'lon': '-107.04225283116102', 'mile': '349'},
-                    {'point': '16', 'name': 'Near Carson Saddle', 'state': 'CO', 'lat': '37.849299162626266', 'lon': '-107.36910799518228', 'mile': '375.4'},
-                    {'point': '17', 'name': '', 'state': 'CO', 'lat': '37.723858281970024', 'lon': '-107.57236235775054', 'mile': '400.1'},
-                    {'point': '18', 'name': 'Cascade Ck', 'state': 'CO', 'lat': '37.7469252794981', 'lon': '-107.84831137396395', 'mile': '425.8'},
-                    {'point': '19', 'name': 'Salt Ck Tr', 'state': 'CO', 'lat': '37.580317938700318', 'lon': '-108.01836049184203', 'mile': '450.7'},
-                    {'point': '20', 'name': '', 'state': 'CO', 'lat': '37.379971090704203', 'lon': '-107.96150788664818', 'mile': '475.4'}]
-
-    lt_locations = [{'point': '01', 'name': 'Seth Warner Shelter', 'state': 'VT', 'lat': '42.7752', 'lon': '-73.1336', 'mile': '2.8'},
-                    {'point': '02', 'name': 'Goddard Shelter', 'state': 'VT', 'lat': '42.9742', 'lon': '-73.0722', 'mile': '24.4'},
-                    {'point': '03', 'name': 'Spruce Peak Shelter', 'state': 'VT', 'lat': '43.1785', 'lon': '-72.9959', 'mile': '51.6'},
-                    {'point': '04', 'name': 'Little Rock Pond Shelter', 'state': 'VT', 'lat': '43.404', 'lon': '-72.9527', 'mile': '74.6'},
-                    {'point': '05', 'name': 'Cooper Lodge', 'state': 'VT', 'lat': '43.6061', 'lon': '-72.8225', 'mile': '97.9'},
-                    {'point': '06', 'name': 'Sunrise Shelter', 'state': 'VT', 'lat': '43.8316', 'lon': '-72.9618', 'mile': '123.2'},
-                    {'point': '07', 'name': 'Battell Shelter', 'state': 'VT', 'lat': '44.1117', 'lon': '-72.9368', 'mile': '153.1'},
-                    {'point': '08', 'name': 'Montclair Glen Lodge', 'state': 'VT', 'lat': '44.301', 'lon': '-72.883', 'mile': '173.5'},
-                    {'point': '09', 'name': 'Butler Lodge', 'state': 'VT', 'lat': '44.5155', 'lon': '-72.8202', 'mile': '201.6'},
-                    {'point': '10', 'name': 'Roundtop Shelter', 'state': 'VT', 'lat': '44.6725', 'lon': '-72.7267', 'mile': '224.9'},
-                    {'point': '11', 'name': 'Tillotson Camp', 'state': 'VT', 'lat': '44.7992', 'lon': '-72.551', 'mile': '248'},
-                    {'point': '12', 'name': 'Northern Terminus', 'state': 'VT', 'lat': '45.0045', 'lon': '-72.4669', 'mile': '271.3'}]
-
-    pct_locations = [{'point': '001', 'name': 'southern terminus', 'state': 'CA', 'lat': '32.589741', 'lon': '-116.466981', 'mile': '0000'},
-                     {'point': '002', 'name': 'near lake morena', 'state': 'CA', 'lat': '32.72609', 'lon': '-116.495315', 'mile': '0025'},
-                     {'point': '003', 'name': 'near mt laguna', 'state': 'CA', 'lat': '32.918589', 'lon': '-116.45833', 'mile': '0050'},
-                     {'point': '004', 'name': 'near scissors crossing', 'state': 'CA', 'lat': '33.076952', 'lon': '-116.467901', 'mile': '0075'},
-                     {'point': '005', 'name': 'near warner springs', 'state': 'CA', 'lat': '33.20829', 'lon': '-116.578046', 'mile': '0100'},
-                     {'point': '006', 'name': '', 'state': 'CA', 'lat': '33.364543', 'lon': '-116.604395', 'mile': '0125'},
-                     {'point': '007', 'name': 'paradise valley cafe', 'state': 'CA', 'lat': '33.545997', 'lon': '-116.577138', 'mile': '0150'},
-                     {'point': '008', 'name': 'near devil''s slide jct', 'state': 'CA', 'lat': '33.757047', 'lon': '-116.648285', 'mile': '0175'},
-                     {'point': '009', 'name': 'near cabazon i10', 'state': 'CA', 'lat': '33.866776', 'lon': '-116.696281', 'mile': '0200'},
-                     {'point': '010', 'name': '', 'state': 'CA', 'lat': '34.038886', 'lon': '-116.657651', 'mile': '0225'},
-                     {'point': '011', 'name': '', 'state': 'CA', 'lat': '34.171776', 'lon': '-116.714598', 'mile': '0250'},
-                     {'point': '012', 'name': 'near big bear', 'state': 'CA', 'lat': '34.289845', 'lon': '-116.883573', 'mile': '0275'},
-                     {'point': '013', 'name': '', 'state': 'CA', 'lat': '34.289351', 'lon': '-117.128912', 'mile': '0300'},
-                     {'point': '014', 'name': '', 'state': 'CA', 'lat': '34.304225', 'lon': '-117.328937', 'mile': '0325'},
-                     {'point': '015', 'name': 'near i15 cajon pass', 'state': 'CA', 'lat': '34.288123', 'lon': '-117.516787', 'mile': '0350'},
-                     {'point': '016', 'name': '', 'state': 'CA', 'lat': '34.371124', 'lon': '-117.75578', 'mile': '0375'},
-                     {'point': '017', 'name': '', 'state': 'CA', 'lat': '34.348289', 'lon': '-117.949714', 'mile': '0400'},
-                     {'point': '018', 'name': '', 'state': 'CA', 'lat': '34.379435', 'lon': '-118.141019', 'mile': '0425'},
-                     {'point': '019', 'name': 'near agua dulce (hiker heaven)', 'state': 'CA', 'lat': '34.476528', 'lon': '-118.291064', 'mile': '0450'},
-                     {'point': '020', 'name': 'near green valley (casa de luna)', 'state': 'CA', 'lat': '34.622433', 'lon': '-118.374968', 'mile': '0475'},
-                     {'point': '021', 'name': '', 'state': 'CA', 'lat': '34.709245', 'lon': '-118.592707', 'mile': '0500'},
-                     {'point': '022', 'name': '', 'state': 'CA', 'lat': '34.843639', 'lon': '-118.557599', 'mile': '0525'},
-                     {'point': '023', 'name': '', 'state': 'CA', 'lat': '35.008379', 'lon': '-118.427101', 'mile': '0550'},
-                     {'point': '024', 'name': '', 'state': 'CA', 'lat': '35.156946', 'lon': '-118.254656', 'mile': '0575'},
-                     {'point': '025', 'name': '', 'state': 'CA', 'lat': '35.368533', 'lon': '-118.292546', 'mile': '0600'},
-                     {'point': '026', 'name': '', 'state': 'CA', 'lat': '35.492623', 'lon': '-118.139355', 'mile': '0625'},
-                     {'point': '027', 'name': 'near walker pass', 'state': 'CA', 'lat': '35.656446', 'lon': '-118.051026', 'mile': '0650'},
-                     {'point': '028', 'name': '', 'state': 'CA', 'lat': '35.791553', 'lon': '-118.008704', 'mile': '0675'},
-                     {'point': '029', 'name': 'near kennedy meadows', 'state': 'CA', 'lat': '36.00037', 'lon': '-118.141359', 'mile': '0700'},
-                     {'point': '030', 'name': '', 'state': 'CA', 'lat': '36.264385', 'lon': '-118.133234', 'mile': '0725'},
-                     {'point': '031', 'name': 'cottonwood pass', 'state': 'CA', 'lat': '36.450449', 'lon': '-118.217126', 'mile': '0750'},
-                     {'point': '032', 'name': '', 'state': 'CA', 'lat': '36.646347', 'lon': '-118.38921', 'mile': '0775'},
-                     {'point': '033', 'name': '', 'state': 'CA', 'lat': '36.87521', 'lon': '-118.437674', 'mile': '0800'},
-                     {'point': '034', 'name': '', 'state': 'CA', 'lat': '37.052989', 'lon': '-118.542173', 'mile': '0825'},
-                     {'point': '035', 'name': '', 'state': 'CA', 'lat': '37.194187', 'lon': '-118.771247', 'mile': '0850'},
-                     {'point': '036', 'name': '', 'state': 'CA', 'lat': '37.386627', 'lon': '-118.917361', 'mile': '0875'},
-                     {'point': '037', 'name': 'near red''s meadow', 'state': 'CA', 'lat': '37.551308', 'lon': '-119.028353', 'mile': '0900'},
-                     {'point': '038', 'name': 'near donahue pass', 'state': 'CA', 'lat': '37.739622', 'lon': '-119.198972', 'mile': '0925'},
-                     {'point': '039', 'name': 'near hwy 120 (tuolumne pass)', 'state': 'CA', 'lat': '37.931275', 'lon': '-119.411597', 'mile': '0950'},
-                     {'point': '040', 'name': '', 'state': 'CA', 'lat': '38.039693', 'lon': '-119.525757', 'mile': '0975'},
-                     {'point': '041', 'name': '', 'state': 'CA', 'lat': '38.205751', 'lon': '-119.571582', 'mile': '1000'},
-                     {'point': '042', 'name': '', 'state': 'CA', 'lat': '38.399242', 'lon': '-119.656846', 'mile': '1025'},
-                     {'point': '043', 'name': 'near donner summit to truckee', 'state': 'CA', 'lat': '38.555586', 'lon': '-119.828494', 'mile': '1050'},
-                     {'point': '044', 'name': '', 'state': 'CA', 'lat': '38.683378', 'lon': '-119.984024', 'mile': '1075'},
-                     {'point': '045', 'name': '', 'state': 'CA', 'lat': '38.877556', 'lon': '-120.145931', 'mile': '1100'},
-                     {'point': '046', 'name': '', 'state': 'CA', 'lat': '39.076724', 'lon': '-120.237437', 'mile': '1125'},
-                     {'point': '047', 'name': '', 'state': 'CA', 'lat': '39.284136', 'lon': '-120.31782', 'mile': '1150'},
-                     {'point': '048', 'name': '', 'state': 'CA', 'lat': '39.440233', 'lon': '-120.464459', 'mile': '1175'},
-                     {'point': '049', 'name': 'near hwy 49 to sierra city', 'state': 'CA', 'lat': '39.577432', 'lon': '-120.638274', 'mile': '1200'},
-                     {'point': '050', 'name': '', 'state': 'CA', 'lat': '39.72396', 'lon': '-120.793505', 'mile': '1225'},
-                     {'point': '051', 'name': '', 'state': 'CA', 'lat': '39.811117', 'lon': '-121.04407', 'mile': '1250'},
-                     {'point': '052', 'name': '', 'state': 'CA', 'lat': '39.95571', 'lon': '-121.163783', 'mile': '1275'},
-                     {'point': '053', 'name': '', 'state': 'CA', 'lat': '40.051179', 'lon': '-121.394998', 'mile': '1300'},
-                     {'point': '054', 'name': 'near pct midpoint', 'state': 'CA', 'lat': '40.224437', 'lon': '-121.350511', 'mile': '1325'},
-                     {'point': '055', 'name': 'drakesbad guest ranch', 'state': 'CA', 'lat': '40.442721', 'lon': '-121.398301', 'mile': '1350'},
-                     {'point': '056', 'name': 'near old station', 'state': 'CA', 'lat': '40.663881', 'lon': '-121.443204', 'mile': '1375'},
-                     {'point': '057', 'name': '', 'state': 'CA', 'lat': '40.91072', 'lon': '-121.454888', 'mile': '1400'},
-                     {'point': '058', 'name': '', 'state': 'CA', 'lat': '41.026249', 'lon': '-121.717753', 'mile': '1425'},
-                     {'point': '059', 'name': '', 'state': 'CA', 'lat': '41.173493', 'lon': '-121.859086', 'mile': '1450'},
-                     {'point': '060', 'name': '', 'state': 'CA', 'lat': '41.112069', 'lon': '-122.10725', 'mile': '1475'},
-                     {'point': '061', 'name': 'i5 to castella', 'state': 'CA', 'lat': '41.16332', 'lon': '-122.282803', 'mile': '1500'},
-                     {'point': '062', 'name': '', 'state': 'CA', 'lat': '41.203492', 'lon': '-122.510095', 'mile': '1525'},
-                     {'point': '063', 'name': '', 'state': 'CA', 'lat': '41.327582', 'lon': '-122.623223', 'mile': '1550'},
-                     {'point': '064', 'name': '', 'state': 'CA', 'lat': '41.196875', 'lon': '-122.848463', 'mile': '1575'},
-                     {'point': '065', 'name': 'near etna summit', 'state': 'CA', 'lat': '41.396672', 'lon': '-123.000097', 'mile': '1600'},
-                     {'point': '066', 'name': '', 'state': 'CA', 'lat': '41.574718', 'lon': '-123.196326', 'mile': '1625'},
-                     {'point': '067', 'name': 'seiad valley', 'state': 'CA', 'lat': '41.811701', 'lon': '-123.213054', 'mile': '1650'},
-                     {'point': '068', 'name': '', 'state': 'CA', 'lat': '41.9483', 'lon': '-123.093223', 'mile': '1675'},
-                     {'point': '069', 'name': '', 'state': 'CA', 'lat': '42.05297', 'lon': '-122.837061', 'mile': '1700'},
-                     {'point': '070', 'name': '', 'state': 'OR', 'lat': '42.040589', 'lon': '-122.549294', 'mile': '1725'},
-                     {'point': '071', 'name': '', 'state': 'OR', 'lat': '42.204601', 'lon': '-122.376284', 'mile': '1750'},
-                     {'point': '072', 'name': 'near hwy 140 to fish lake', 'state': 'OR', 'lat': '42.410634', 'lon': '-122.275058', 'mile': '1775'},
-                     {'point': '073', 'name': '', 'state': 'OR', 'lat': '42.655502', 'lon': '-122.206307', 'mile': '1800'},
-                     {'point': '074', 'name': 'near crater lk west rim tr south junction', 'state': 'OR', 'lat': '42.90392', 'lon': '-122.195604', 'mile': '1825'},
-                     {'point': '075', 'name': '', 'state': 'OR', 'lat': '43.115173', 'lon': '-122.080598', 'mile': '1850'},
-                     {'point': '076', 'name': 'near windigo pass', 'state': 'OR', 'lat': '43.3324', 'lon': '-122.009354', 'mile': '1875'},
-                     {'point': '077', 'name': '', 'state': 'OR', 'lat': '43.550744', 'lon': '-122.133056', 'mile': '1900'},
-                     {'point': '078', 'name': '', 'state': 'OR', 'lat': '43.742893', 'lon': '-121.979933', 'mile': '1925'},
-                     {'point': '079', 'name': 'near elk lake tr jct', 'state': 'OR', 'lat': '43.975452', 'lon': '-121.861267', 'mile': '1950'},
-                     {'point': '080', 'name': 'near obsidian falls', 'state': 'OR', 'lat': '44.190331', 'lon': '-121.800638', 'mile': '1975'},
-                     {'point': '081', 'name': 'hwy 20 (santiam pass) to sisters and bend', 'state': 'OR', 'lat': '44.413947', 'lon': '-121.852718', 'mile': '2000'},
-                     {'point': '082', 'name': '', 'state': 'OR', 'lat': '44.647399', 'lon': '-121.832203', 'mile': '2025'},
-                     {'point': '083', 'name': 'near olallie lake resort', 'state': 'OR', 'lat': '44.86263', 'lon': '-121.764819', 'mile': '2050'},
-                     {'point': '084', 'name': '', 'state': 'OR', 'lat': '45.115667', 'lon': '-121.762193', 'mile': '2075'},
-                     {'point': '085', 'name': 'near timberline', 'state': 'OR', 'lat': '45.341973', 'lon': '-121.747632', 'mile': '2100'},
-                     {'point': '086', 'name': '', 'state': 'OR', 'lat': '45.52972', 'lon': '-121.850864', 'mile': '2125'},
-                     {'point': '087', 'name': '', 'state': 'WA', 'lat': '45.665504', 'lon': '-121.936029', 'mile': '2150'},
-                     {'point': '088', 'name': '', 'state': 'WA', 'lat': '45.808362', 'lon': '-121.972632', 'mile': '2175'},
-                     {'point': '089', 'name': '', 'state': 'WA', 'lat': '45.933253', 'lon': '-121.803844', 'mile': '2200'},
-                     {'point': '090', 'name': '', 'state': 'WA', 'lat': '46.132219', 'lon': '-121.66771', 'mile': '2225'},
-                     {'point': '091', 'name': '', 'state': 'WA', 'lat': '46.311904', 'lon': '-121.51448', 'mile': '2250'},
-                     {'point': '092', 'name': 'near goat rocks and old snowy', 'state': 'WA', 'lat': '46.498665', 'lon': '-121.46407', 'mile': '2275'},
-                     {'point': '093', 'name': 'near hwy 12 to white pass and packwood', 'state': 'WA', 'lat': '46.687928', 'lon': '-121.401966', 'mile': '2300'},
-                     {'point': '094', 'name': 'hwy 410 (chinook pass)', 'state': 'WA', 'lat': '46.888035', 'lon': '-121.505346', 'mile': '2325'},
-                     {'point': '095', 'name': '', 'state': 'WA', 'lat': '47.119529', 'lon': '-121.40518', 'mile': '2350'},
-                     {'point': '096', 'name': '', 'state': 'WA', 'lat': '47.282801', 'lon': '-121.35286', 'mile': '2375'},
-                     {'point': '097', 'name': 'near i90 (snoqualmie pass)', 'state': 'WA', 'lat': '47.458838', 'lon': '-121.368885', 'mile': '2400'},
-                     {'point': '098', 'name': '', 'state': 'WA', 'lat': '47.509181', 'lon': '-121.214486', 'mile': '2425'},
-                     {'point': '099', 'name': '', 'state': 'WA', 'lat': '47.655557', 'lon': '-121.140338', 'mile': '2450'},
-                     {'point': '100', 'name': '', 'state': 'WA', 'lat': '47.827927', 'lon': '-121.112239', 'mile': '2475'},
-                     {'point': '101', 'name': '', 'state': 'WA', 'lat': '48.016761', 'lon': '-121.128105', 'mile': '2500'},
-                     {'point': '102', 'name': '', 'state': 'WA', 'lat': '48.173692', 'lon': '-121.141723', 'mile': '2525'},
-                     {'point': '103', 'name': '', 'state': 'WA', 'lat': '48.19279', 'lon': '-120.956282', 'mile': '2550'},
-                     {'point': '104', 'name': 'near high bridge (shuttle to stehekin)', 'state': 'WA', 'lat': '48.408661', 'lon': '-120.854564', 'mile': '2575'},
-                     {'point': '105', 'name': 'near rainy pass', 'state': 'WA', 'lat': '48.580807', 'lon': '-120.705674', 'mile': '2600'},
-                     {'point': '106', 'name': 'near harts pass', 'state': 'WA', 'lat': '48.749249', 'lon': '-120.69421', 'mile': '2625'},
-                     {'point': '107', 'name': 'northern terminus', 'state': 'WA', 'lat': '48.970134', 'lon': '-120.78692', 'mile': '2650'}]
-
-    update_trail('at', at_locations)
-    update_trail('azt', azt_locations)
-    update_trail('ct', ct_locations)
-    update_trail('lt', lt_locations)
-    update_trail('pct', pct_locations)
+    # if no trails specified, update all; otherwise filter to requested trails
+    trails = trails_to_update if trails_to_update else trail_data.keys()
+    for trail in trails:
+        if trail in trail_data:
+            update_trail(trail, trail_data[trail])
+        else:
+            print(f"Unknown trail: {trail}")
 
 
 def update_trail(trailname, locations):
-    emptify_rawforecast_bucket(trailname)
+    del_rawforecast_bucket_contents(trailname)
     get_forecasts(locations, trailname)
     process_forecasts(trailname)
-    emptify_rawforecast_bucket(trailname)
     
 
 def lambda_handler(event, context):
-# if __name__ == '__main__':
-    main()
+    """
+    Entry point for Lambda. Accepts optional 'trails' list in event.
+    If trails not specified, updates all trails.
+    """
+    trails_to_update = event.get('trails') if event else None
+    main(trails_to_update)
 
     print('done.')
     return("success.")

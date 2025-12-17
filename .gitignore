@@ -37,3 +37,4 @@ sample_data/
 !src/
 !src/**
 !config.example.json
+!src/forecast_locations.json
