@@ -133,7 +133,10 @@ def process_forecasts(trailname):
 
             # Write detail file with all daily data for this location
             point = content_object.key.split('_')[2]
-            detail = {'days': json_content['daily']['data']}
+            detail = {
+                'gps': [json_content['longitude'], json_content['latitude']],
+                'days': json_content['daily']['data']
+            }
             write_to_s3(S3_BUCKET, f'forecasts/detail/{trailname}/{point}.json', json.dumps(detail))
 
             forecasts.insert(int(content_object.key.split('_')[2]),
