@@ -137,7 +137,11 @@ def process_forecasts(trailname):
                 'gps': [json_content['longitude'], json_content['latitude']],
                 'days': json_content['daily']['data']
             }
-            write_to_s3(S3_BUCKET, f'forecasts/detail/{trailname}/{point}.json', json.dumps(detail))
+            detail_json = json.dumps(detail)
+            write_to_s3(S3_BUCKET, f'forecasts/detail/{trailname}/{point}.json', detail_json)
+            # Archive detail file
+            date_str = f'{datetime.datetime.now().year}{datetime.datetime.now().month:02}{datetime.datetime.now().day:02}'
+            write_to_s3(S3_BUCKET, f'forecasts/archive/detail/{trailname}_{date_str}/{point}.json', detail_json)
 
             forecasts.insert(int(content_object.key.split('_')[2]),
                              {'key': content_object.key,
