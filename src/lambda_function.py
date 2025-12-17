@@ -161,10 +161,14 @@ def process_forecasts(trailname):
 
 
 def write_to_s3(s3_bucketname, fullpath, string):
+    """
+    Writes string content to S3. Archive files are private; others are public-read.
+    """
     s3 = boto3.resource('s3')
     bucket = s3.Bucket(s3_bucketname)
+    acl = 'private' if fullpath.startswith('forecasts/archive/') else 'public-read'
     response = bucket.put_object(
-        ACL='public-read',
+        ACL=acl,
         ContentType='application/json',
         Key=fullpath,
         Body=string,
