@@ -1,7 +1,7 @@
 {
   "at": [
     {
-      "point": "01",
+      "point": "001",
       "name": "Max Epperson Shelter, Amicalola Falls SP",
       "state": "",
       "lat": "34.558602",
@@ -9,7 +9,7 @@
       "mile": "-8.7"
     },
     {
-      "point": "02",
+      "point": "002",
       "name": "Springer Mountain Shelter",
       "state": "",
       "lat": "34.62946",
@@ -17,7 +17,7 @@
       "mile": "0.2"
     },
     {
-      "point": "03",
+      "point": "003",
       "name": "Woods Hole Shelter",
       "state": "",
       "lat": "34.73724",
@@ -25,7 +25,7 @@
       "mile": "28.2"
     },
     {
-      "point": "04",
+      "point": "004",
       "name": "Blue Mountain Shelter",
       "state": "",
       "lat": "34.81724",
@@ -33,7 +33,7 @@
       "mile": "50.5"
     },
     {
-      "point": "05",
+      "point": "005",
       "name": "Plumorchard Gap Shelter",
       "state": "",
       "lat": "34.94594",
@@ -41,7 +41,7 @@
       "mile": "74.1"
     },
     {
-      "point": "06",
+      "point": "006",
       "name": "Long Branch Shelter",
       "state": "",
       "lat": "35.06997",
@@ -49,7 +49,7 @@
       "mile": "102.5"
     },
     {
-      "point": "07",
+      "point": "007",
       "name": "Cold Spring Shelter",
       "state": "",
       "lat": "35.23109",
@@ -57,7 +57,7 @@
       "mile": "125.6"
     },
     {
-      "point": "08",
+      "point": "008",
       "name": "Brown Fork Gap Shelter",
       "state": "",
       "lat": "35.37427",
@@ -65,7 +65,7 @@
       "mile": "153.1"
     },
     {
-      "point": "09",
+      "point": "009",
       "name": "Mollies Ridge Shelter",
       "state": "",
       "lat": "35.54587",
@@ -73,7 +73,7 @@
       "mile": "177.3"
     },
     {
-      "point": "10",
+      "point": "010",
       "name": "Mt. Collins Shelter",
       "state": "",
       "lat": "35.59384",
@@ -81,7 +81,7 @@
       "mile": "202.8"
     },
     {
-      "point": "11",
+      "point": "011",
       "name": "Tricorner Knob Shelter",
       "state": "",
       "lat": "35.69375",
@@ -89,7 +89,7 @@
       "mile": "222.2"
     },
     {
-      "point": "12",
+      "point": "012",
       "name": "Roaring Fork Shelter",
       "state": "",
       "lat": "35.805",
@@ -97,7 +97,7 @@
       "mile": "255.7"
     },
     {
-      "point": "13",
+      "point": "013",
       "name": "Deer Park Mountain Shelter",
       "state": "",
       "lat": "35.87595",
@@ -105,7 +105,7 @@
       "mile": "270.5"
     },
     {
-      "point": "14",
+      "point": "014",
       "name": "Jerry Cabin",
       "state": "",
       "lat": "36.05655",
@@ -113,7 +113,7 @@
       "mile": "300.1"
     },
     {
-      "point": "15",
+      "point": "015",
       "name": "Bald Mountain Shelter",
       "state": "",
       "lat": "36.00016",
@@ -121,7 +121,7 @@
       "mile": "325.3"
     },
     {
-      "point": "16",
+      "point": "016",
       "name": "Curley Maple Gap Shelter",
       "state": "",
       "lat": "36.10432",
@@ -129,7 +129,7 @@
       "mile": "346.4"
     },
     {
-      "point": "17",
+      "point": "017",
       "name": "Roan High Knob Shelter",
       "state": "",
       "lat": "36.10506",
@@ -137,7 +137,7 @@
       "mile": "376.8"
     },
     {
-      "point": "18",
+      "point": "018",
       "name": "Mountaineer Falls Shelter",
       "state": "",
       "lat": "36.2202",
@@ -145,7 +145,7 @@
       "mile": "401.9"
     },
     {
-      "point": "19",
+      "point": "019",
       "name": "Watauga Lake Shelter",
       "state": "",
       "lat": "36.31398",
@@ -153,7 +153,7 @@
       "mile": "428.7"
     },
     {
-      "point": "20",
+      "point": "020",
       "name": "Double Springs Shelter",
       "state": "",
       "lat": "36.50911",
@@ -161,7 +161,7 @@
       "mile": "450.3"
     },
     {
-      "point": "21",
+      "point": "021",
       "name": "Damascus, VA",
       "state": "",
       "lat": "36.63628",
@@ -169,7 +169,7 @@
       "mile": "468.5"
     },
     {
-      "point": "22",
+      "point": "022",
       "name": "Thomas Knob Shelter",
       "state": "",
       "lat": "36.65659",
@@ -177,7 +177,7 @@
       "mile": "497.1"
     },
     {
-      "point": "23",
+      "point": "023",
       "name": "Trimpi Shelter",
       "state": "",
       "lat": "36.74939",
@@ -185,7 +185,7 @@
       "mile": "522.4"
     },
     {
-      "point": "24",
+      "point": "024",
       "name": "OLystery Pavilion",
       "state": "",
       "lat": "36.98445",
@@ -193,7 +193,7 @@
       "mile": "556.3"
     },
     {
-      "point": "25",
+      "point": "025",
       "name": "Jenkins Shelter",
       "state": "",
       "lat": "37.0934",
@@ -201,7 +201,7 @@
       "mile": "578.6"
     },
     {
-      "point": "26",
+      "point": "026",
       "name": "Jenny Knob Shelter",
       "state": "",
       "lat": "37.15504",
@@ -209,7 +209,7 @@
       "mile": "601.8"
     },
     {
-      "point": "27",
+      "point": "027",
       "name": "Docs Knob Shelter",
       "state": "",
       "lat": "37.27031",
@@ -217,7 +217,7 @@
       "mile": "625.8"
     },
     {
-      "point": "28",
+      "point": "028",
       "name": "Pine Swamp Branch Shelter",
       "state": "",
       "lat": "37.42204",
@@ -225,7 +225,7 @@
       "mile": "654.1"
     },
     {
-      "point": "29",
+      "point": "029",
       "name": "Laurel Creek Shelter",
       "state": "",
       "lat": "37.35896",
@@ -233,7 +233,7 @@
       "mile": "672.6"
     },
     {
-      "point": "30",
+      "point": "030",
       "name": "Pickle Branch Shelter",
       "state": "",
       "lat": "37.38015",
@@ -241,7 +241,7 @@
       "mile": "695.1"
     },
     {
-      "point": "31",
+      "point": "031",
       "name": "Daleville, VA",
       "state": "",
       "lat": "37.39068393",
@@ -249,7 +249,7 @@
       "mile": "727.5"
     },
     {
-      "point": "32",
+      "point": "032",
       "name": "Cove Mountain Shelter",
       "state": "",
       "lat": "37.51162",
@@ -257,7 +257,7 @@
       "mile": "752.5"
     },
     {
-      "point": "33",
+      "point": "033",
       "name": "Matts Creek Shelter",
       "state": "",
       "lat": "37.59955",
@@ -265,7 +265,7 @@
       "mile": "782.1"
     },
     {
-      "point": "34",
+      "point": "034",
       "name": "Brown Mountain Creek Shelter",
       "state": "",
       "lat": "37.70944",
@@ -273,7 +273,7 @@
       "mile": "804.3"
     },
     {
-      "point": "35",
+      "point": "035",
       "name": "The Priest Shelter",
       "state": "",
       "lat": "37.81765",
@@ -281,7 +281,7 @@
       "mile": "826.7"
     },
     {
-      "point": "36",
+      "point": "036",
       "name": "Paul C. Wolfe Shelter",
       "state": "",
       "lat": "37.98543",
@@ -289,7 +289,7 @@
       "mile": "856.3"
     },
     {
-      "point": "37",
+      "point": "037",
       "name": "Calf Mountain Shelter",
       "state": "",
       "lat": "38.08553",
@@ -297,7 +297,7 @@
       "mile": "869"
     },
     {
-      "point": "38",
+      "point": "038",
       "name": "Hightop Hut",
       "state": "",
       "lat": "38.33314",
@@ -305,7 +305,7 @@
       "mile": "903.4"
     },
     {
-      "point": "39",
+      "point": "039",
       "name": "Rock Spring Hut",
       "state": "",
       "lat": "38.55353",
@@ -313,7 +313,7 @@
       "mile": "927.3"
     },
     {
-      "point": "40",
+      "point": "040",
       "name": "Gravel Springs Hut",
       "state": "",
       "lat": "38.76388",
@@ -321,7 +321,7 @@
       "mile": "955.7"
     },
     {
-      "point": "41",
+      "point": "041",
       "name": "Jim & Molly Denton Shelter",
       "state": "",
       "lat": "38.89007",
@@ -329,7 +329,7 @@
       "mile": "974.3"
     },
     {
-      "point": "42",
+      "point": "042",
       "name": "Sam Moore Shelter",
       "state": "",
       "lat": "39.09067",
@@ -337,7 +337,7 @@
       "mile": "999.6"
     },
     {
-      "point": "43",
+      "point": "043",
       "name": "Ed Garvey Shelter",
       "state": "",
       "lat": "39.35982",
@@ -345,7 +345,7 @@
       "mile": "1029.4"
     },
     {
-      "point": "44",
+      "point": "044",
       "name": "Ensign Cowall Shelter",
       "state": "",
       "lat": "39.63102",
@@ -353,7 +353,7 @@
       "mile": "1054.2"
     },
     {
-      "point": "45",
+      "point": "045",
       "name": "Rocky Mountain Shelters",
       "state": "",
       "lat": "39.86851",
@@ -361,7 +361,7 @@
       "mile": "1078.9"
     },
     {
-      "point": "46",
+      "point": "046",
       "name": "Toms Run Shelters",
       "state": "",
       "lat": "40.03367",
@@ -369,7 +369,7 @@
       "mile": "1098.1"
     },
     {
-      "point": "47",
+      "point": "047",
       "name": "Darlington Shelter",
       "state": "",
       "lat": "40.302",
@@ -377,7 +377,7 @@
       "mile": "1135.3"
     },
     {
-      "point": "48",
+      "point": "048",
       "name": "Clarks Ferry Shelter",
       "state": "",
       "lat": "40.39238",
@@ -385,7 +385,7 @@
       "mile": "1150.9"
     },
     {
-      "point": "49",
+      "point": "049",
       "name": "Rausch Gap Shelter",
       "state": "",
       "lat": "40.49865",
@@ -393,7 +393,7 @@
       "mile": "1175.6"
     },
     {
-      "point": "50",
+      "point": "050",
       "name": "Eagles Nest Shelter",
       "state": "",
       "lat": "40.54932",
@@ -401,7 +401,7 @@
       "mile": "1208.2"
     },
     {
-      "point": "51",
+      "point": "051",
       "name": "Eckville Shelter",
       "state": "",
       "lat": "40.63375",
@@ -409,7 +409,7 @@
       "mile": "1232"
     },
     {
-      "point": "52",
+      "point": "052",
       "name": "Bake Oven Knob Shelter",
       "state": "",
       "lat": "40.7541",
@@ -417,7 +417,7 @@
       "mile": "1249.4"
     },
     {
-      "point": "53",
+      "point": "053",
       "name": "Wind Gap",
       "state": "",
       "lat": "40.860703",
@@ -425,7 +425,7 @@
       "mile": "1277.5"
     },
     {
-      "point": "54",
+      "point": "054",
       "name": "I-80",
       "state": "",
       "lat": "40.971845",
@@ -433,7 +433,7 @@
       "mile": "1294.7"
     },
     {
-      "point": "55",
+      "point": "055",
       "name": "Gren Anderson Shelter",
       "state": "",
       "lat": "41.19948",
@@ -441,7 +441,7 @@
       "mile": "1324.4"
     },
     {
-      "point": "56",
+      "point": "056",
       "name": "Pochuck Mountain Shelter",
       "state": "",
       "lat": "41.27126",
@@ -449,7 +449,7 @@
       "mile": "1349.8"
     },
     {
-      "point": "57",
+      "point": "057",
       "name": "Wildcat Shelter",
       "state": "",
       "lat": "41.26824",
@@ -457,7 +457,7 @@
       "mile": "1373.4"
     },
     {
-      "point": "58",
+      "point": "058",
       "name": "Bear Mountain Summit",
       "state": "",
       "lat": "41.311495",
@@ -465,7 +465,7 @@
       "mile": "1400.4"
     },
     {
-      "point": "59",
+      "point": "059",
       "name": "RPH Shelter",
       "state": "",
       "lat": "41.51449",
@@ -473,7 +473,7 @@
       "mile": "1428.4"
     },
     {
-      "point": "60",
+      "point": "060",
       "name": "Wiley Shelter",
       "state": "",
       "lat": "41.63782",
@@ -481,7 +481,7 @@
       "mile": "1454"
     },
     {
-      "point": "61",
+      "point": "061",
       "name": "Stewart Hollow Brook Shelter",
       "state": "",
       "lat": "41.77928",
@@ -489,7 +489,7 @@
       "mile": "1473.7"
     },
     {
-      "point": "62",
+      "point": "062",
       "name": "Riga Shelter",
       "state": "",
       "lat": "42.01562",
@@ -497,7 +497,7 @@
       "mile": "1502.6"
     },
     {
-      "point": "63",
+      "point": "063",
       "name": "Tom Leonard Shelter",
       "state": "",
       "lat": "42.16479",
@@ -505,7 +505,7 @@
       "mile": "1527"
     },
     {
-      "point": "64",
+      "point": "064",
       "name": "Upper Goose Pond Cabin",
       "state": "",
       "lat": "42.28802",
@@ -513,7 +513,7 @@
       "mile": "1548.1"
     },
     {
-      "point": "65",
+      "point": "065",
       "name": "Mark Noepel Shelter",
       "state": "",
       "lat": "42.60862",
@@ -521,7 +521,7 @@
       "mile": "1582.6"
     },
     {
-      "point": "66",
+      "point": "066",
       "name": "Seth Warner Shelter",
       "state": "",
       "lat": "42.77193",
@@ -529,7 +529,7 @@
       "mile": "1599.1"
     },
     {
-      "point": "67",
+      "point": "067",
       "name": "Kid Gore Shelter",
       "state": "",
       "lat": "43.01406",
@@ -537,7 +537,7 @@
       "mile": "1625"
     },
     {
-      "point": "68",
+      "point": "068",
       "name": "Bromley Shelter",
       "state": "",
       "lat": "43.22238",
@@ -545,7 +545,7 @@
       "mile": "1652.7"
     },
     {
-      "point": "69",
+      "point": "069",
       "name": "Greenwall Shelter",
       "state": "",
       "lat": "43.44059",
@@ -553,7 +553,7 @@
       "mile": "1675.3"
     },
     {
-      "point": "70",
+      "point": "070",
       "name": "Churchill Scott Shelter",
       "state": "",
       "lat": "43.64489",
@@ -561,7 +561,7 @@
       "mile": "1698.9"
     },
     {
-      "point": "71",
+      "point": "071",
       "name": "Cloudland Shelter",
       "state": "",
       "lat": "43.69214",
@@ -569,7 +569,7 @@
       "mile": "1730.5"
     },
     {
-      "point": "72",
+      "point": "072",
       "name": "Velvet Rocks Shelter",
       "state": "",
       "lat": "43.70251",
@@ -577,7 +577,7 @@
       "mile": "1748.4"
     },
     {
-      "point": "73",
+      "point": "073",
       "name": "Hexacuba Shelter",
       "state": "",
       "lat": "43.87623",
@@ -585,7 +585,7 @@
       "mile": "1775.6"
     },
     {
-      "point": "74",
+      "point": "074",
       "name": "Beaver Brook Shelter",
       "state": "",
       "lat": "44.03304",
@@ -593,7 +593,7 @@
       "mile": "1798.2"
     },
     {
-      "point": "75",
+      "point": "075",
       "name": "Garfield Ridge Campsite Shelter",
       "state": "",
       "lat": "44.19069",
@@ -601,7 +601,7 @@
       "mile": "1826.3"
     },
     {
-      "point": "76",
+      "point": "076",
       "name": "Lake of the Clouds Hut",
       "state": "",
       "lat": "44.2589",
@@ -609,7 +609,7 @@
       "mile": "1851.1"
     },
     {
-      "point": "77",
+      "point": "077",
       "name": "Pinkham Notch",
       "state": "",
       "lat": "44.257498",
@@ -617,7 +617,7 @@
       "mile": "1869.7"
     },
     {
-      "point": "78",
+      "point": "078",
       "name": "Gentian Pond Campsite Shelter",
       "state": "",
       "lat": "44.4518",
@@ -625,7 +625,7 @@
       "mile": "1902.6"
     },
     {
-      "point": "79",
+      "point": "079",
       "name": "Frye Notch Lean-to",
       "state": "",
       "lat": "44.62791",
@@ -633,7 +633,7 @@
       "mile": "1927.7"
     },
     {
-      "point": "80",
+      "point": "080",
       "name": "Bemis Mountain Lean-to",
       "state": "",
       "lat": "44.81018",
@@ -641,7 +641,7 @@
       "mile": "1951"
     },
     {
-      "point": "81",
+      "point": "081",
       "name": "Poplar Ridge Lean-to",
       "state": "",
       "lat": "44.97",
@@ -649,7 +649,7 @@
       "mile": "1979.4"
     },
     {
-      "point": "82",
+      "point": "082",
       "name": "Horns Pond Lean-tos",
       "state": "",
       "lat": "45.14388",
@@ -657,7 +657,7 @@
       "mile": "2006"
     },
     {
-      "point": "83",
+      "point": "083",
       "name": "West Carry Pond Lean-to",
       "state": "",
       "lat": "45.15803",
@@ -665,7 +665,7 @@
       "mile": "2023.9"
     },
     {
-      "point": "84",
+      "point": "084",
       "name": "Bald Mountain Brook Lean-to",
       "state": "",
       "lat": "45.25854",
@@ -673,7 +673,7 @@
       "mile": "2052.6"
     },
     {
-      "point": "85",
+      "point": "085",
       "name": "Leeman Brook Lean-to",
       "state": "",
       "lat": "45.35151",
@@ -681,7 +681,7 @@
       "mile": "2077.6"
     },
     {
-      "point": "86",
+      "point": "086",
       "name": "Chairback Gap Lean-to",
       "state": "",
       "lat": "45.45311",
@@ -689,7 +689,7 @@
       "mile": "2100.6"
     },
     {
-      "point": "87",
+      "point": "087",
       "name": "Cooper Brook Falls Lean-to",
       "state": "",
       "lat": "45.6405",
@@ -697,7 +697,7 @@
       "mile": "2129.4"
     },
     {
-      "point": "88",
+      "point": "088",
       "name": "Wadleigh Stream Lean-to",
       "state": "",
       "lat": "45.74702",
@@ -705,7 +705,7 @@
       "mile": "2150.9"
     },
     {
-      "point": "89",
+      "point": "089",
       "name": "Hurd Brook Lean-to",
       "state": "",
       "lat": "45.81852",
@@ -713,7 +713,7 @@
       "mile": "2170.5"
     },
     {
-      "point": "90",
+      "point": "090",
       "name": "The Birches Shelters",
       "state": "",
       "lat": "45.88675",
@@ -723,15 +723,15 @@
   ],
   "azt": [
     {
-      "point": "01",
-      "name": "southern terminus",
+      "point": "001",
+      "name": "Southern Terminus",
       "state": "AZ",
       "lat": "31.3341880",
       "lon": "-110.2820890",
       "mile": "0.0"
     },
     {
-      "point": "02",
+      "point": "002",
       "name": "",
       "state": "AZ",
       "lat": "31.4381080",
@@ -739,15 +739,15 @@
       "mile": "25.0"
     },
     {
-      "point": "03",
-      "name": "patagonia",
+      "point": "003",
+      "name": "Patagonia",
       "state": "AZ",
       "lat": "31.5411600",
       "lon": "-110.7476650",
       "mile": "50.0"
     },
     {
-      "point": "04",
+      "point": "004",
       "name": "",
       "state": "AZ",
       "lat": "31.7428370",
@@ -755,7 +755,7 @@
       "mile": "75.0"
     },
     {
-      "point": "05",
+      "point": "005",
       "name": "",
       "state": "AZ",
       "lat": "31.9312540",
@@ -763,7 +763,7 @@
       "mile": "100.0"
     },
     {
-      "point": "06",
+      "point": "006",
       "name": "",
       "state": "AZ",
       "lat": "32.1502190",
@@ -771,7 +771,7 @@
       "mile": "125.0"
     },
     {
-      "point": "07",
+      "point": "007",
       "name": "",
       "state": "AZ",
       "lat": "32.3192480",
@@ -779,15 +779,15 @@
       "mile": "150.0"
     },
     {
-      "point": "08",
-      "name": "summerhaven",
+      "point": "008",
+      "name": "Summerhaven",
       "state": "AZ",
       "lat": "32.4300120",
       "lon": "-110.7551200",
       "mile": "175.0"
     },
     {
-      "point": "09",
+      "point": "009",
       "name": "",
       "state": "AZ",
       "lat": "32.6711780",
@@ -795,7 +795,7 @@
       "mile": "200.0"
     },
     {
-      "point": "10",
+      "point": "010",
       "name": "",
       "state": "AZ",
       "lat": "32.8868040",
@@ -803,15 +803,15 @@
       "mile": "225.0"
     },
     {
-      "point": "11",
-      "name": "gila river crossing",
+      "point": "011",
+      "name": "Gila River Crossing",
       "state": "AZ",
       "lat": "33.1088700",
       "lon": "-110.9831000",
       "mile": "250.0"
     },
     {
-      "point": "12",
+      "point": "012",
       "name": "",
       "state": "AZ",
       "lat": "33.2007120",
@@ -819,23 +819,23 @@
       "mile": "275.0"
     },
     {
-      "point": "13",
-      "name": "rogers trough th",
+      "point": "013",
+      "name": "Rogers Trough TH",
       "state": "AZ",
       "lat": "33.4147590",
       "lon": "-111.1726150",
       "mile": "300.0"
     },
     {
-      "point": "14",
-      "name": "theodore roosevelt dam",
+      "point": "014",
+      "name": "Theodore Roosevelt Dam",
       "state": "AZ",
       "lat": "33.6573630",
       "lon": "-111.1364800",
       "mile": "325.0"
     },
     {
-      "point": "15",
+      "point": "015",
       "name": "",
       "state": "AZ",
       "lat": "33.7413380",
@@ -843,7 +843,7 @@
       "mile": "350.0"
     },
     {
-      "point": "16",
+      "point": "016",
       "name": "",
       "state": "AZ",
       "lat": "33.9566490",
@@ -851,7 +851,7 @@
       "mile": "375.0"
     },
     {
-      "point": "17",
+      "point": "017",
       "name": "",
       "state": "AZ",
       "lat": "34.1358660",
@@ -859,7 +859,7 @@
       "mile": "400.0"
     },
     {
-      "point": "18",
+      "point": "018",
       "name": "",
       "state": "AZ",
       "lat": "34.3535370",
@@ -867,7 +867,7 @@
       "mile": "425.0"
     },
     {
-      "point": "19",
+      "point": "019",
       "name": "",
       "state": "AZ",
       "lat": "34.4214680",
@@ -875,7 +875,7 @@
       "mile": "450.0"
     },
     {
-      "point": "20",
+      "point": "020",
       "name": "",
       "state": "AZ",
       "lat": "34.6535700",
@@ -883,7 +883,7 @@
       "mile": "475.0"
     },
     {
-      "point": "21",
+      "point": "021",
       "name": "",
       "state": "AZ",
       "lat": "34.8313970",
@@ -891,7 +891,7 @@
       "mile": "500.0"
     },
     {
-      "point": "22",
+      "point": "022",
       "name": "",
       "state": "AZ",
       "lat": "35.0710040",
@@ -899,23 +899,23 @@
       "mile": "525.0"
     },
     {
-      "point": "23",
-      "name": "hwy 40",
+      "point": "023",
+      "name": "Hwy 40",
       "state": "AZ",
       "lat": "35.2118000",
       "lon": "-111.5070620",
       "mile": "550.0"
     },
     {
-      "point": "24",
-      "name": "az snowbowl skiing",
+      "point": "024",
+      "name": "AZ Snowbowl Skiing",
       "state": "AZ",
       "lat": "35.3377570",
       "lon": "-111.7172290",
       "mile": "575.0"
     },
     {
-      "point": "25",
+      "point": "025",
       "name": "",
       "state": "AZ",
       "lat": "35.5937490",
@@ -923,7 +923,7 @@
       "mile": "600.0"
     },
     {
-      "point": "26",
+      "point": "026",
       "name": "",
       "state": "AZ",
       "lat": "35.8453610",
@@ -931,7 +931,7 @@
       "mile": "625.0"
     },
     {
-      "point": "27",
+      "point": "027",
       "name": "",
       "state": "AZ",
       "lat": "35.9627160",
@@ -939,15 +939,15 @@
       "mile": "650.0"
     },
     {
-      "point": "28",
-      "name": "north rim",
+      "point": "028",
+      "name": "North Rim",
       "state": "AZ",
       "lat": "36.1774210",
       "lon": "-112.0362930",
       "mile": "675.0"
     },
     {
-      "point": "29",
+      "point": "029",
       "name": "",
       "state": "AZ",
       "lat": "36.4251880",
@@ -955,7 +955,7 @@
       "mile": "700.0"
     },
     {
-      "point": "30",
+      "point": "030",
       "name": "",
       "state": "AZ",
       "lat": "36.6887910",
@@ -963,7 +963,7 @@
       "mile": "725.0"
     },
     {
-      "point": "31",
+      "point": "031",
       "name": "",
       "state": "AZ",
       "lat": "36.9767090",
@@ -971,8 +971,8 @@
       "mile": "750.0"
     },
     {
-      "point": "32",
-      "name": "northern terminus",
+      "point": "032",
+      "name": "Northern Terminus",
       "state": "AZ",
       "lat": "37.0010500",
       "lon": "-112.0351770",
@@ -981,7 +981,7 @@
   ],
   "ct": [
     {
-      "point": "01",
+      "point": "001",
       "name": "",
       "state": "CO",
       "lat": "39.49126772582531",
@@ -989,7 +989,7 @@
       "mile": "0"
     },
     {
-      "point": "02",
+      "point": "002",
       "name": "Near Raleigh Pk",
       "state": "CO",
       "lat": "39.386833067983389",
@@ -997,7 +997,7 @@
       "mile": "24.1"
     },
     {
-      "point": "03",
+      "point": "003",
       "name": "Lost Creek TH",
       "state": "CO",
       "lat": "39.306682460010052",
@@ -1005,7 +1005,7 @@
       "mile": "49.4"
     },
     {
-      "point": "04",
+      "point": "004",
       "name": "Gurnsey Ck",
       "state": "CO",
       "lat": "39.427800038829446",
@@ -1013,7 +1013,7 @@
       "mile": "74.8"
     },
     {
-      "point": "05",
+      "point": "005",
       "name": "",
       "state": "CO",
       "lat": "39.536572666838765",
@@ -1021,7 +1021,7 @@
       "mile": "100.2"
     },
     {
-      "point": "06",
+      "point": "006",
       "name": "Near Searle Pass",
       "state": "CO",
       "lat": "39.458234226331115",
@@ -1029,7 +1029,7 @@
       "mile": "127.2"
     },
     {
-      "point": "07",
+      "point": "007",
       "name": "",
       "state": "CO",
       "lat": "39.326791735365987",
@@ -1037,7 +1037,7 @@
       "mile": "149.9"
     },
     {
-      "point": "08",
+      "point": "008",
       "name": "S Elbert Tr",
       "state": "CO",
       "lat": "39.109584353864193",
@@ -1045,7 +1045,7 @@
       "mile": "174"
     },
     {
-      "point": "09",
+      "point": "009",
       "name": "Rainbow Ck Tr",
       "state": "CO",
       "lat": "38.953644577413797",
@@ -1053,7 +1053,7 @@
       "mile": "199.2"
     },
     {
-      "point": "10",
+      "point": "010",
       "name": "",
       "state": "CO",
       "lat": "38.759440490975976",
@@ -1061,7 +1061,7 @@
       "mile": "225.4"
     },
     {
-      "point": "11",
+      "point": "011",
       "name": "",
       "state": "CO",
       "lat": "38.568066973239183",
@@ -1069,7 +1069,7 @@
       "mile": "249.9"
     },
     {
-      "point": "12",
+      "point": "012",
       "name": "",
       "state": "CO",
       "lat": "38.344333861023188",
@@ -1077,7 +1077,7 @@
       "mile": "275.1"
     },
     {
-      "point": "13",
+      "point": "013",
       "name": "Lujan Ck TH",
       "state": "CO",
       "lat": "38.239954691380262",
@@ -1085,7 +1085,7 @@
       "mile": "300.1"
     },
     {
-      "point": "14",
+      "point": "014",
       "name": "Access to Cochetopa Ck",
       "state": "CO",
       "lat": "38.098549973219633",
@@ -1093,7 +1093,7 @@
       "mile": "323.8"
     },
     {
-      "point": "15",
+      "point": "015",
       "name": "Mineral Ck Tr",
       "state": "CO",
       "lat": "37.949614031240344",
@@ -1101,7 +1101,7 @@
       "mile": "349"
     },
     {
-      "point": "16",
+      "point": "016",
       "name": "Near Carson Saddle",
       "state": "CO",
       "lat": "37.849299162626266",
@@ -1109,7 +1109,7 @@
       "mile": "375.4"
     },
     {
-      "point": "17",
+      "point": "017",
       "name": "",
       "state": "CO",
       "lat": "37.723858281970024",
@@ -1117,7 +1117,7 @@
       "mile": "400.1"
     },
     {
-      "point": "18",
+      "point": "018",
       "name": "Cascade Ck",
       "state": "CO",
       "lat": "37.7469252794981",
@@ -1125,7 +1125,7 @@
       "mile": "425.8"
     },
     {
-      "point": "19",
+      "point": "019",
       "name": "Salt Ck Tr",
       "state": "CO",
       "lat": "37.580317938700318",
@@ -1133,7 +1133,7 @@
       "mile": "450.7"
     },
     {
-      "point": "20",
+      "point": "020",
       "name": "",
       "state": "CO",
       "lat": "37.379971090704203",
@@ -1143,7 +1143,7 @@
   ],
   "lt": [
     {
-      "point": "01",
+      "point": "001",
       "name": "Seth Warner Shelter",
       "state": "VT",
       "lat": "42.7752",
@@ -1151,7 +1151,7 @@
       "mile": "2.8"
     },
     {
-      "point": "02",
+      "point": "002",
       "name": "Goddard Shelter",
       "state": "VT",
       "lat": "42.9742",
@@ -1159,7 +1159,7 @@
       "mile": "24.4"
     },
     {
-      "point": "03",
+      "point": "003",
       "name": "Spruce Peak Shelter",
       "state": "VT",
       "lat": "43.1785",
@@ -1167,7 +1167,7 @@
       "mile": "51.6"
     },
     {
-      "point": "04",
+      "point": "004",
       "name": "Little Rock Pond Shelter",
       "state": "VT",
       "lat": "43.404",
@@ -1175,7 +1175,7 @@
       "mile": "74.6"
     },
     {
-      "point": "05",
+      "point": "005",
       "name": "Cooper Lodge",
       "state": "VT",
       "lat": "43.6061",
@@ -1183,7 +1183,7 @@
       "mile": "97.9"
     },
     {
-      "point": "06",
+      "point": "006",
       "name": "Sunrise Shelter",
       "state": "VT",
       "lat": "43.8316",
@@ -1191,7 +1191,7 @@
       "mile": "123.2"
     },
     {
-      "point": "07",
+      "point": "007",
       "name": "Battell Shelter",
       "state": "VT",
       "lat": "44.1117",
@@ -1199,7 +1199,7 @@
       "mile": "153.1"
     },
     {
-      "point": "08",
+      "point": "008",
       "name": "Montclair Glen Lodge",
       "state": "VT",
       "lat": "44.301",
@@ -1207,7 +1207,7 @@
       "mile": "173.5"
     },
     {
-      "point": "09",
+      "point": "009",
       "name": "Butler Lodge",
       "state": "VT",
       "lat": "44.5155",
@@ -1215,7 +1215,7 @@
       "mile": "201.6"
     },
     {
-      "point": "10",
+      "point": "010",
       "name": "Roundtop Shelter",
       "state": "VT",
       "lat": "44.6725",
@@ -1223,7 +1223,7 @@
       "mile": "224.9"
     },
     {
-      "point": "11",
+      "point": "011",
       "name": "Tillotson Camp",
       "state": "VT",
       "lat": "44.7992",
@@ -1231,7 +1231,7 @@
       "mile": "248"
     },
     {
-      "point": "12",
+      "point": "012",
       "name": "Northern Terminus",
       "state": "VT",
       "lat": "45.0045",
@@ -1242,7 +1242,7 @@
   "pct": [
     {
       "point": "001",
-      "name": "southern terminus",
+      "name": "Southern Terminus",
       "state": "CA",
       "lat": "32.589741",
       "lon": "-116.466981",
@@ -1250,7 +1250,7 @@
     },
     {
       "point": "002",
-      "name": "near lake morena",
+      "name": "Near Lake Morena",
       "state": "CA",
       "lat": "32.72609",
       "lon": "-116.495315",
@@ -1258,7 +1258,7 @@
     },
     {
       "point": "003",
-      "name": "near mt laguna",
+      "name": "Near Mt Laguna",
       "state": "CA",
       "lat": "32.918589",
       "lon": "-116.45833",
@@ -1266,7 +1266,7 @@
     },
     {
       "point": "004",
-      "name": "near scissors crossing",
+      "name": "Near Scissors Crossing",
       "state": "CA",
       "lat": "33.076952",
       "lon": "-116.467901",
@@ -1274,7 +1274,7 @@
     },
     {
       "point": "005",
-      "name": "near warner springs",
+      "name": "Near Warner Springs",
       "state": "CA",
       "lat": "33.20829",
       "lon": "-116.578046",
@@ -1290,7 +1290,7 @@
     },
     {
       "point": "007",
-      "name": "paradise valley cafe",
+      "name": "Paradise Valley Cafe",
       "state": "CA",
       "lat": "33.545997",
       "lon": "-116.577138",
@@ -1298,7 +1298,7 @@
     },
     {
       "point": "008",
-      "name": "near devils slide jct",
+      "name": "Near Devils Slide Jct",
       "state": "CA",
       "lat": "33.757047",
       "lon": "-116.648285",
@@ -1306,7 +1306,7 @@
     },
     {
       "point": "009",
-      "name": "near cabazon i10",
+      "name": "Near Cabazon I-10",
       "state": "CA",
       "lat": "33.866776",
       "lon": "-116.696281",
@@ -1330,7 +1330,7 @@
     },
     {
       "point": "012",
-      "name": "near big bear",
+      "name": "Near Big Bear",
       "state": "CA",
       "lat": "34.289845",
       "lon": "-116.883573",
@@ -1354,7 +1354,7 @@
     },
     {
       "point": "015",
-      "name": "near i15 cajon pass",
+      "name": "Near I-15 Cajon Pass",
       "state": "CA",
       "lat": "34.288123",
       "lon": "-117.516787",
@@ -1386,7 +1386,7 @@
     },
     {
       "point": "019",
-      "name": "near agua dulce (hiker heaven)",
+      "name": "Near Agua Dulce",
       "state": "CA",
       "lat": "34.476528",
       "lon": "-118.291064",
@@ -1394,7 +1394,7 @@
     },
     {
       "point": "020",
-      "name": "near green valley (casa de luna)",
+      "name": "Near Green Valley",
       "state": "CA",
       "lat": "34.622433",
       "lon": "-118.374968",
@@ -1450,7 +1450,7 @@
     },
     {
       "point": "027",
-      "name": "near walker pass",
+      "name": "Near Walker Pass",
       "state": "CA",
       "lat": "35.656446",
       "lon": "-118.051026",
@@ -1466,7 +1466,7 @@
     },
     {
       "point": "029",
-      "name": "near kennedy meadows",
+      "name": "Near Kennedy Meadows",
       "state": "CA",
       "lat": "36.00037",
       "lon": "-118.141359",
@@ -1482,7 +1482,7 @@
     },
     {
       "point": "031",
-      "name": "cottonwood pass",
+      "name": "Cottonwood Pass",
       "state": "CA",
       "lat": "36.450449",
       "lon": "-118.217126",
@@ -1530,7 +1530,7 @@
     },
     {
       "point": "037",
-      "name": "near reds meadow",
+      "name": "Near Reds Meadow",
       "state": "CA",
       "lat": "37.551308",
       "lon": "-119.028353",
@@ -1538,7 +1538,7 @@
     },
     {
       "point": "038",
-      "name": "near donahue pass",
+      "name": "Near Donahue Pass",
       "state": "CA",
       "lat": "37.739622",
       "lon": "-119.198972",
@@ -1546,7 +1546,7 @@
     },
     {
       "point": "039",
-      "name": "near hwy 120 (tuolumne pass)",
+      "name": "Near Hwy 120 (Tuolumne Pass)",
       "state": "CA",
       "lat": "37.931275",
       "lon": "-119.411597",
@@ -1578,7 +1578,7 @@
     },
     {
       "point": "043",
-      "name": "near donner summit to truckee",
+      "name": "Near Donner Summit to Truckee",
       "state": "CA",
       "lat": "38.555586",
       "lon": "-119.828494",
@@ -1626,7 +1626,7 @@
     },
     {
       "point": "049",
-      "name": "near hwy 49 to sierra city",
+      "name": "Near Hwy 49 to Sierra City",
       "state": "CA",
       "lat": "39.577432",
       "lon": "-120.638274",
@@ -1666,7 +1666,7 @@
     },
     {
       "point": "054",
-      "name": "near pct midpoint",
+      "name": "Near PCT Midpoint",
       "state": "CA",
       "lat": "40.224437",
       "lon": "-121.350511",
@@ -1674,7 +1674,7 @@
     },
     {
       "point": "055",
-      "name": "drakesbad guest ranch",
+      "name": "Drakesbad Guest Ranch",
       "state": "CA",
       "lat": "40.442721",
       "lon": "-121.398301",
@@ -1682,7 +1682,7 @@
     },
     {
       "point": "056",
-      "name": "near old station",
+      "name": "Near Old Station",
       "state": "CA",
       "lat": "40.663881",
       "lon": "-121.443204",
@@ -1722,7 +1722,7 @@
     },
     {
       "point": "061",
-      "name": "i5 to castella",
+      "name": "I-5 to Castella",
       "state": "CA",
       "lat": "41.16332",
       "lon": "-122.282803",
@@ -1754,7 +1754,7 @@
     },
     {
       "point": "065",
-      "name": "near etna summit",
+      "name": "Near Etna Summit",
       "state": "CA",
       "lat": "41.396672",
       "lon": "-123.000097",
@@ -1770,7 +1770,7 @@
     },
     {
       "point": "067",
-      "name": "seiad valley",
+      "name": "Seiad Valley",
       "state": "CA",
       "lat": "41.811701",
       "lon": "-123.213054",
@@ -1810,7 +1810,7 @@
     },
     {
       "point": "072",
-      "name": "near hwy 140 to fish lake",
+      "name": "Near Hwy 140 to Fish Lake",
       "state": "OR",
       "lat": "42.410634",
       "lon": "-122.275058",
@@ -1826,7 +1826,7 @@
     },
     {
       "point": "074",
-      "name": "near crater lk west rim tr south junction",
+      "name": "Near Crater Lk West Rim Tr South Junction",
       "state": "OR",
       "lat": "42.90392",
       "lon": "-122.195604",
@@ -1842,7 +1842,7 @@
     },
     {
       "point": "076",
-      "name": "near windigo pass",
+      "name": "Near Windigo Pass",
       "state": "OR",
       "lat": "43.3324",
       "lon": "-122.009354",
@@ -1866,7 +1866,7 @@
     },
     {
       "point": "079",
-      "name": "near elk lake tr jct",
+      "name": "Near Elk Lake Tr Jct",
       "state": "OR",
       "lat": "43.975452",
       "lon": "-121.861267",
@@ -1874,7 +1874,7 @@
     },
     {
       "point": "080",
-      "name": "near obsidian falls",
+      "name": "Near Obsidian Falls",
       "state": "OR",
       "lat": "44.190331",
       "lon": "-121.800638",
@@ -1882,7 +1882,7 @@
     },
     {
       "point": "081",
-      "name": "hwy 20 (santiam pass) to sisters and bend",
+      "name": "Hwy 20 (Santiam Pass) to Sisters and Bend",
       "state": "OR",
       "lat": "44.413947",
       "lon": "-121.852718",
@@ -1898,7 +1898,7 @@
     },
     {
       "point": "083",
-      "name": "near olallie lake resort",
+      "name": "Near Olallie Lake Resort",
       "state": "OR",
       "lat": "44.86263",
       "lon": "-121.764819",
@@ -1914,7 +1914,7 @@
     },
     {
       "point": "085",
-      "name": "near timberline",
+      "name": "Near Timberline",
       "state": "OR",
       "lat": "45.341973",
       "lon": "-121.747632",
@@ -1970,7 +1970,7 @@
     },
     {
       "point": "092",
-      "name": "near goat rocks and old snowy",
+      "name": "Near Goat Rocks and Old Snowy",
       "state": "WA",
       "lat": "46.498665",
       "lon": "-121.46407",
@@ -1978,7 +1978,7 @@
     },
     {
       "point": "093",
-      "name": "near hwy 12 to white pass and packwood",
+      "name": "Near Hwy 12 to White Pass and Packwood",
       "state": "WA",
       "lat": "46.687928",
       "lon": "-121.401966",
@@ -1986,7 +1986,7 @@
     },
     {
       "point": "094",
-      "name": "hwy 410 (chinook pass)",
+      "name": "Hwy 410 (Chinook Pass)",
       "state": "WA",
       "lat": "46.888035",
       "lon": "-121.505346",
@@ -2010,7 +2010,7 @@
     },
     {
       "point": "097",
-      "name": "near i90 (snoqualmie pass)",
+      "name": "Near I-90 (Snoqualmie Pass)",
       "state": "WA",
       "lat": "47.458838",
       "lon": "-121.368885",
@@ -2066,7 +2066,7 @@
     },
     {
       "point": "104",
-      "name": "near high bridge (shuttle to stehekin)",
+      "name": "Near High Bridge (shuttle to Stehekin)",
       "state": "WA",
       "lat": "48.408661",
       "lon": "-120.854564",
@@ -2074,7 +2074,7 @@
     },
     {
       "point": "105",
-      "name": "near rainy pass",
+      "name": "Near Rainy Pass",
       "state": "WA",
       "lat": "48.580807",
       "lon": "-120.705674",
@@ -2082,7 +2082,7 @@
     },
     {
       "point": "106",
-      "name": "near harts pass",
+      "name": "Near Harts Pass",
       "state": "WA",
       "lat": "48.749249",
       "lon": "-120.69421",
@@ -2090,7 +2090,7 @@
     },
     {
       "point": "107",
-      "name": "northern terminus",
+      "name": "Northern Terminus",
       "state": "WA",
       "lat": "48.970134",
       "lon": "-120.78692",
