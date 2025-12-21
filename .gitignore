@@ -38,3 +38,5 @@ sample_data/
 !src/**
 !config.example.json
 !src/forecast_locations.json
+!README.md
+!LICENSE
