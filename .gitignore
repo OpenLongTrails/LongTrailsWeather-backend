@@ -36,6 +36,9 @@ sample_data/
 !.gitignore
 !src/
 !src/**
+!scripts/
+!scripts/**
+!Makefile
 !config.example.json
 !src/forecast_locations.json
 !README.md
