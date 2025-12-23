@@ -2096,5 +2096,407 @@
       "lon": "-120.78692",
       "mile": "2650"
     }
+  ],
+  "pnt": [
+    {
+      "point": "001",
+      "name": "Eastern Terminus",
+      "state": "MT",
+      "lat": "48.99591",
+      "lon": "-113.65970",
+      "mile": "0.0"
+    },
+    {
+      "point": "002",
+      "name": "Waterton River Camp",
+      "state": "MT",
+      "lat": "48.95578",
+      "lon": "-113.89765",
+      "mile": "26.8"
+    },
+    {
+      "point": "003",
+      "name": "Bowman Lake CG",
+      "state": "MT",
+      "lat": "48.82917",
+      "lon": "-114.20131",
+      "mile": "49.1"
+    },
+    {
+      "point": "004",
+      "name": "Link Lake TH",
+      "state": "MT",
+      "lat": "48.76128",
+      "lon": "-114.59122",
+      "mile": "75.9"
+    },
+    {
+      "point": "005",
+      "name": "Foundation Ck",
+      "state": "MT",
+      "lat": "48.94766",
+      "lon": "-114.76338",
+      "mile": "99.7"
+    },
+    {
+      "point": "006",
+      "name": "Unnamed lake",
+      "state": "MT",
+      "lat": "48.98671",
+      "lon": "-115.01932",
+      "mile": "126.3"
+    },
+    {
+      "point": "007",
+      "name": "Lake Koocanusa bridge",
+      "state": "MT",
+      "lat": "48.82396",
+      "lon": "-115.26259",
+      "mile": "150.7"
+    },
+    {
+      "point": "008",
+      "name": "Fish Lakes",
+      "state": "MT",
+      "lat": "48.86934",
+      "lon": "-115.58177",
+      "mile": "176.7"
+    },
+    {
+      "point": "009",
+      "name": "Garver Mtn Pk Tr Jct",
+      "state": "MT",
+      "lat": "48.93313",
+      "lon": "-115.79654",
+      "mile": "199.2"
+    },
+    {
+      "point": "010",
+      "name": "FR 403",
+      "state": "ID",
+      "lat": "48.92045",
+      "lon": "-116.07991",
+      "mile": "223.9"
+    },
+    {
+      "point": "011",
+      "name": "US 95",
+      "state": "ID",
+      "lat": "48.87952",
+      "lon": "-116.34368",
+      "mile": "249.0"
+    },
+    {
+      "point": "012",
+      "name": "Pyramid Lk",
+      "state": "ID",
+      "lat": "48.80047",
+      "lon": "-116.61136",
+      "mile": "275.8"
+    },
+    {
+      "point": "013",
+      "name": "Upper Priest Lk CG",
+      "state": "ID",
+      "lat": "48.78631",
+      "lon": "-116.87864",
+      "mile": "302.1"
+    },
+    {
+      "point": "014",
+      "name": "Shedroof Mtn",
+      "state": "WA",
+      "lat": "48.93959",
+      "lon": "-117.04680",
+      "mile": "324.2"
+    },
+    {
+      "point": "015",
+      "name": "Mill Pond",
+      "state": "WA",
+      "lat": "48.85947",
+      "lon": "-117.30149",
+      "mile": "348.9"
+    },
+    {
+      "point": "016",
+      "name": "Abercrombie Mtn Tr Jct",
+      "state": "WA",
+      "lat": "48.92477",
+      "lon": "-117.48018",
+      "mile": "372.1"
+    },
+    {
+      "point": "017",
+      "name": "Northport, WA",
+      "state": "WA",
+      "lat": "48.91757",
+      "lon": "-117.77759",
+      "mile": "400.1"
+    },
+    {
+      "point": "018",
+      "name": "Rockcut Rd / Kettle River",
+      "state": "WA",
+      "lat": "48.91582",
+      "lon": "-118.20066",
+      "mile": "426.7"
+    },
+    {
+      "point": "019",
+      "name": "Ryan Cabin Tr Jct",
+      "state": "WA",
+      "lat": "48.77485",
+      "lon": "-118.45120",
+      "mile": "454.2"
+    },
+    {
+      "point": "020",
+      "name": "Sherman Pk Loop Tr Jct",
+      "state": "WA",
+      "lat": "48.60170",
+      "lon": "-118.47327",
+      "mile": "474.6"
+    },
+    {
+      "point": "021",
+      "name": "Alt Jct",
+      "state": "WA",
+      "lat": "48.50133",
+      "lon": "-118.68604",
+      "mile": "498.2"
+    },
+    {
+      "point": "022",
+      "name": "FR 20",
+      "state": "WA",
+      "lat": "48.66794",
+      "lon": "-118.91203",
+      "mile": "526.6"
+    },
+    {
+      "point": "023",
+      "name": "Bonaparte Lake CG Jct",
+      "state": "WA",
+      "lat": "48.79260",
+      "lon": "-119.05789",
+      "mile": "549.4"
+    },
+    {
+      "point": "024",
+      "name": "Wilcox TH",
+      "state": "WA",
+      "lat": "48.85982",
+      "lon": "-119.30607",
+      "mile": "575.1"
+    },
+    {
+      "point": "025",
+      "name": "Nighthawk / Simikameen River",
+      "state": "WA",
+      "lat": "48.96664",
+      "lon": "-119.64132",
+      "mile": "603.8"
+    },
+    {
+      "point": "026",
+      "name": "Cold Springs",
+      "state": "WA",
+      "lat": "48.93909",
+      "lon": "-119.79049",
+      "mile": "626.6"
+    },
+    {
+      "point": "027",
+      "name": "Tungsten Tr / Cathedral Pass Loop Jct",
+      "state": "WA",
+      "lat": "48.97703",
+      "lon": "-120.13226",
+      "mile": "651.2"
+    },
+    {
+      "point": "028",
+      "name": "Quartz Lk Tr Jct",
+      "state": "WA",
+      "lat": "48.95586",
+      "lon": "-120.40455",
+      "mile": "673.7"
+    },
+    {
+      "point": "029",
+      "name": "PCT Jct",
+      "state": "WA",
+      "lat": "48.95716",
+      "lon": "-120.77926",
+      "mile": "702.4"
+    },
+    {
+      "point": "030",
+      "name": "Devils Dome Loop Tr Jct",
+      "state": "WA",
+      "lat": "48.81199",
+      "lon": "-120.85356",
+      "mile": "724.0"
+    },
+    {
+      "point": "031",
+      "name": "Jack Mtn Tr Jct",
+      "state": "WA",
+      "lat": "48.72718",
+      "lon": "-121.01179",
+      "mile": "744.3"
+    },
+    {
+      "point": "032",
+      "name": "Little Beaver Creek",
+      "state": "WA",
+      "lat": "48.89626",
+      "lon": "-121.25257",
+      "mile": "774.5"
+    },
+    {
+      "point": "033",
+      "name": "Goat Mtn Tr Jct",
+      "state": "WA",
+      "lat": "48.89762",
+      "lon": "-121.64622",
+      "mile": "800.4"
+    },
+    {
+      "point": "034",
+      "name": "Baker Lake Rd",
+      "state": "WA",
+      "lat": "48.73394",
+      "lon": "-121.66235",
+      "mile": "825.4"
+    },
+    {
+      "point": "035",
+      "name": "FR 12",
+      "state": "WA",
+      "lat": "48.67375",
+      "lon": "-121.73559",
+      "mile": "849.9"
+    },
+    {
+      "point": "036",
+      "name": "FR 340",
+      "state": "WA",
+      "lat": "48.59985",
+      "lon": "-121.89456",
+      "mile": "876.2"
+    },
+    {
+      "point": "037",
+      "name": "FR 172",
+      "state": "WA",
+      "lat": "48.57328",
+      "lon": "-122.15292",
+      "mile": "899.7"
+    },
+    {
+      "point": "038",
+      "name": "Alger CCC Rd",
+      "state": "WA",
+      "lat": "48.63654",
+      "lon": "-122.30921",
+      "mile": "927.8"
+    },
+    {
+      "point": "039",
+      "name": "Edison, WA",
+      "state": "WA",
+      "lat": "48.56233",
+      "lon": "-122.44360",
+      "mile": "949.3"
+    },
+    {
+      "point": "040",
+      "name": "Heart Lk",
+      "state": "WA",
+      "lat": "48.48064",
+      "lon": "-122.63171",
+      "mile": "974.6"
+    },
+    {
+      "point": "041",
+      "name": "Joseph Whidbey SP",
+      "state": "WA",
+      "lat": "48.31091",
+      "lon": "-122.70189",
+      "mile": "999.8"
+    },
+    {
+      "point": "042",
+      "name": "Mill Rd",
+      "state": "WA",
+      "lat": "48.09885",
+      "lon": "-122.81116",
+      "mile": "1023.6"
+    },
+    {
+      "point": "043",
+      "name": "Mt Zion",
+      "state": "WA",
+      "lat": "47.92327",
+      "lon": "-123.01055",
+      "mile": "1050.9"
+    },
+    {
+      "point": "044",
+      "name": "Olympic NF/NP boundary",
+      "state": "WA",
+      "lat": "47.79570",
+      "lon": "-123.14999",
+      "mile": "1075.4"
+    },
+    {
+      "point": "045",
+      "name": "Hayes River",
+      "state": "WA",
+      "lat": "47.81059",
+      "lon": "-123.45253",
+      "mile": "1103.9"
+    },
+    {
+      "point": "046",
+      "name": "Olympic Hot Springs Rd",
+      "state": "WA",
+      "lat": "48.01477",
+      "lon": "-123.58995",
+      "mile": "1125.0"
+    },
+    {
+      "point": "047",
+      "name": "Olympic NP/NF boundary",
+      "state": "WA",
+      "lat": "47.88217",
+      "lon": "-124.24703",
+      "mile": "1177.0"
+    },
+    {
+      "point": "048",
+      "name": "Oil City Rd",
+      "state": "WA",
+      "lat": "47.76815",
+      "lon": "-124.34058",
+      "mile": "1203.3"
+    },
+    {
+      "point": "049",
+      "name": "La Push, WA",
+      "state": "WA",
+      "lat": "47.90992",
+      "lon": "-124.63647",
+      "mile": "1227.5"
+    },
+    {
+      "point": "050",
+      "name": "Western Terminus",
+      "state": "WA",
+      "lat": "48.16174",
+      "lon": "-124.73284",
+      "mile": "1248.8"
+    }
   ]
 }
