@@ -1,10 +1,25 @@
 import json
+import math
 import os
 import boto3
 import datetime
 import urllib.request
 
 S3_BUCKET = 'www.longtrailsweather.net'
+
+
+def is_valid_timestamp(val):
+    """
+    Returns True if val is a valid numeric timestamp.
+    Returns False for None, non-numeric types, or NaN.
+    """
+    if val is None:
+        return False
+    if not isinstance(val, (int, float)):
+        return False
+    if isinstance(val, float) and math.isnan(val):
+        return False
+    return True
 
 
 def get_api_key():
@@ -75,6 +90,7 @@ def process_forecasts(trailname):
             content_object = s3.Object(obj._bucket_name, obj.key)
             file_content = content_object.get()['Body'].read().decode('utf-8')
             json_content = json.loads(file_content)
+            alerts = json_content.get('alerts') or []
 
             last_modified = content_object.last_modified
 
@@ -127,6 +143,28 @@ def process_forecasts(trailname):
                 else:
                     processed_day['summary'] = "#NA"
 
+                # check if any alert overlaps this day
+                day_start = source_day.get('time', 0)
+                day_end = day_start + 86400
+                has_alert = False
+                for alert in alerts:
+                    alert_start = alert.get('time')
+                    alert_end = alert.get('expires')
+                    start_valid = is_valid_timestamp(alert_start)
+                    end_valid = is_valid_timestamp(alert_end)
+                    # start > end is nonsensical — treat both as bad
+                    if start_valid and end_valid and alert_start > alert_end:
+                        start_valid = False
+                        end_valid = False
+                    if not start_valid:
+                        alert_start = 0
+                    if not end_valid:
+                        alert_end = float('inf')
+                    if alert_start < day_end and alert_end > day_start:
+                        has_alert = True
+                        break
+                processed_day['alert'] = has_alert
+
                 days.append(processed_day)
 
             print('')
@@ -135,7 +173,8 @@ def process_forecasts(trailname):
             point = content_object.key.split('_')[2]
             detail = {
                 'gps': [json_content['longitude'], json_content['latitude']],
-                'days': json_content['daily']['data']
+                'days': json_content['daily']['data'],
+                'alerts': alerts
             }
             detail_json = json.dumps(detail)
             write_to_s3(S3_BUCKET, f'forecasts/detail/{trailname}/{point}.json', detail_json)
