@@ -40,6 +40,7 @@ aws lambda invoke \
     --region ${REGION} \
     --invocation-type ${INVOCATION_TYPE} \
     --log-type Tail \
+    --cli-binary-format raw-in-base64-out \
     --payload "${PAYLOAD}" \
     response.json \
     --query 'LogResult' \
