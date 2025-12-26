@@ -50,6 +50,7 @@ def main():
     parser.add_argument('input_json', nargs='?', help='Path to JSON file with trail location data')
     parser.add_argument('--shortname', help='Trail abbreviation (e.g., pnt)')
     parser.add_argument('--longname', help='Trail name (e.g., Pacific Northwest Trail)')
+    parser.add_argument('--mapurl', default='', help='Map URL template with {{lat}} and {{lon}} placeholders (optional)')
     args = parser.parse_args()
 
     if not args.input_json or not args.shortname or not args.longname:
@@ -66,7 +67,10 @@ def main():
     # merge into forecast_locations.json
     with open(LOCATIONS_FILE) as f:
         all_locations = json.load(f)
-    all_locations[args.shortname] = locations
+    all_locations[args.shortname] = {
+        "map_url_template": args.mapurl,
+        "locations": locations
+    }
     with open(LOCATIONS_FILE, 'w') as f:
         json.dump(all_locations, f, indent=2)
     print(f"Added {len(locations)} locations for '{args.shortname}' to {LOCATIONS_FILE}")

@@ -75,7 +75,7 @@ def get_forecasts(locations, trailname):
         print(S3_BUCKET + '/forecasts/raw/' + trailname + '/' + filename + ' written.')
 
 
-def process_forecasts(trailname):
+def process_forecasts(trailname, map_url_template):
     forecasts = []
     last_modified = datetime.datetime.today()
 
@@ -193,6 +193,7 @@ def process_forecasts(trailname):
                               'days': days})
 
     a = {'last_modified': str(last_modified),
+         'map_url_template': map_url_template,
          'forecasts': forecasts}
 
     write_to_s3(S3_BUCKET, 'forecasts/processed/' + trailname + '.json', json.dumps(a))
@@ -226,16 +227,16 @@ def main(trails_to_update=None):
     trails = trails_to_update if trails_to_update else trail_data.keys()
     for trail in trails:
         if trail in trail_data:
-            update_trail(trail, trail_data[trail])
+            update_trail(trail, trail_data[trail]['locations'], trail_data[trail]['map_url_template'])
         else:
             print(f"Unknown trail: {trail}")
 
 
-def update_trail(trailname, locations):
+def update_trail(trailname, locations, map_url_template):
     del_s3_prefix_contents(f'forecasts/raw/{trailname}')
     del_s3_prefix_contents(f'forecasts/detail/{trailname}')
     get_forecasts(locations, trailname)
-    process_forecasts(trailname)
+    process_forecasts(trailname, map_url_template)
     
 
 def lambda_handler(event, context):
