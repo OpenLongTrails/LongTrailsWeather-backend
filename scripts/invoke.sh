@@ -47,6 +47,8 @@ aws lambda invoke \
     --output text | base64 -d
 
 echo ""
-echo -e "${GREEN}Response saved to response.json:${NC}"
-cat response.json
-echo ""
+if [[ "$INVOCATION_TYPE" == "RequestResponse" ]]; then
+    echo -e "${GREEN}Response saved to response.json:${NC}"
+    cat response.json
+    echo ""
+fi
