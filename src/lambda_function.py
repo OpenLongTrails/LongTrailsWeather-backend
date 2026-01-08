@@ -207,12 +207,15 @@ def write_to_s3(s3_bucketname, fullpath, string):
     s3 = boto3.resource('s3')
     bucket = s3.Bucket(s3_bucketname)
     acl = 'private' if fullpath.startswith('forecasts/archive/') else 'public-read'
-    response = bucket.put_object(
-        ACL=acl,
-        ContentType='application/json',
-        Key=fullpath,
-        Body=string,
-    )
+    put_args = {
+        'ACL': acl,
+        'ContentType': 'application/json',
+        'Key': fullpath,
+        'Body': string,
+    }
+    if not fullpath.startswith('forecasts/archive/'):
+        put_args['CacheControl'] = 'max-age=0'
+    response = bucket.put_object(**put_args)
     print('saved ' + s3_bucketname + '/' + response.key)
 
 
