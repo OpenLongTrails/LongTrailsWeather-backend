@@ -1,3 +1,14 @@
+!.gitignore
+!src/
+!src/**
+!scripts/
+!scripts/**
+!Makefile
+!config.example.json
+!src/forecast_locations.json
+!README.md
+!LICENSE
+
 # Deployment artifacts
 deployment.zip
 *.pyc
@@ -30,16 +41,3 @@ LAMBDA_CONFIG.jsonc
 
 # Sample data
 sample_data/
-
-# Ignore everything else pending review for public sharing
-*
-!.gitignore
-!src/
-!src/**
-!scripts/
-!scripts/**
-!Makefile
-!config.example.json
-!src/forecast_locations.json
-!README.md
-!LICENSE
